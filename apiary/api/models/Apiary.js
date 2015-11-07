@@ -1,5 +1,8 @@
 module.exports = {
   attributes: {
+    creator: {
+      model: "User"
+    },
     name: {
       type: 'string'
     },
