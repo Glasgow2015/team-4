@@ -1,10 +1,13 @@
 module.exports = {
   attributes: {
     text: {
-      type: "string"
+      model: "Text"
     },
-    answeres: {
-      type: "array"
+    answers: {
+      collection: "Text"
+    },
+    type: {
+      type: "string"
     }
   }
 };
