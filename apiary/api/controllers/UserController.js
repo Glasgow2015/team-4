@@ -44,7 +44,7 @@ module.exports = {
 									error: "Registration successful, but we couldn't log you in. Please try loggin in again."
 								});
 							} else {
-								return res.send();
+								return res.send(user);
 							}
 						});
 					});
