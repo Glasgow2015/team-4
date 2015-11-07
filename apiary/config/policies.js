@@ -35,6 +35,9 @@ module.exports.policies = {
   },
   InspectionController: {
     create: ['sessionAuth']
+  },
+  HarvestController: {
+    create: ['sessionAuth']
   }
 
   /***************************************************************************

@@ -34,7 +34,8 @@ module.exports.routes = {
 
   'post /api/apiary/create': 'ApiaryController.create',
   'post /api/hive/create': 'HiveController.create',
-  'post /api/inspection/create': 'InspectionController.create'
+  'post /api/inspection/create': 'InspectionController.create',
+  'post /api/harvest/create': 'HarvestController.create'
 
   /***************************************************************************
   *                                                                          *
