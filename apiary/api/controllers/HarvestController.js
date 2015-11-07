@@ -3,7 +3,7 @@ module.exports = {
     var ripe = parseFloat(req.param("ripe"));
     var buckets = parseFloat(req.param("buckets"));
     if (isNaN(ripe) || isNaN(buckets)) {
-      return res.send({
+      return res.ok({
         error: "Invalid number sent, either ripe or buckets"
       });
     }
@@ -18,6 +18,6 @@ module.exports = {
     };
 
     return Harvest.create(newHarvest)
-    .then(res.send);
+    .then(res.ok);
   }
 };
