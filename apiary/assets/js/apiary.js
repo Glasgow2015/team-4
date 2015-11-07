@@ -1,7 +1,8 @@
 var app = angular.module('apiary', [
     'ui.router',
     'mainModule',
-    'mgcrea.ngStrap'
+    'mgcrea.ngStrap',
+    'ngMaterial'
 ]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -21,6 +22,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             },
             'topbar@main': {
               templateUrl: '/templates/navbar.html',
+              controller: 'navbarController'
             },
             'body@main': {
               templateUrl: '/templates/home.html'
