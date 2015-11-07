@@ -26,7 +26,23 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': false,
+  ApiaryController: {
+    create: ['sessionAuth']
+  },
+  HiveController: {
+    create: ['sessionAuth'],
+    addSponsor: ['sessionAuth'],
+    removeSponsor: ['sessionAuth'],
+    getOne: ['sessionAuth'],
+    getByApiary: ['sessionAuth'],
+  },
+  InspectionController: {
+    create: ['sessionAuth']
+  },
+  HarvestController: {
+    create: ['sessionAuth']
+  }
 
   /***************************************************************************
   *                                                                          *
@@ -48,4 +64,5 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
 };
