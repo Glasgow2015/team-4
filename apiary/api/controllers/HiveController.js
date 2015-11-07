@@ -4,7 +4,7 @@ module.exports = {
     var log = parseFloat(req.param("log"));
 
     if (isNaN(lat) || isNaN(log)) {
-      return res.send({
+      return res.ok({
         error: "incorrect gps data received"
       });
     }
@@ -34,7 +34,7 @@ module.exports = {
         error: "Failed to create a new hive"
       };
     })
-    .then(res.send);
+    .then(res.ok);
   },
 
   addSponsor: function(req, res) {
@@ -50,7 +50,7 @@ module.exports = {
       return {
         error: "Failed to add a sponsor"
       };
-    }).then(res.send);
+    }).then(res.ok);
   },
 
   removeSponsor: function(req, res) {
@@ -66,7 +66,7 @@ module.exports = {
       return {
         error: "Failed to remove a sponsor"
       };
-    }).then(res.send);
+    }).then(res.ok);
   },
 
   addKeeper: function(req, res) {
@@ -82,7 +82,7 @@ module.exports = {
       return {
         error: "Failed to add a sponsor"
       };
-    }).then(res.send);
+    }).then(res.ok);
   },
 
   removeKeeper: function(req, res) {
@@ -101,7 +101,7 @@ module.exports = {
       return {
         error: "Failed to remove a sponsor"
       };
-    }).then(res.send);
+    }).then(res.ok);
   },
 
   getByApiary: function(req, res) {
@@ -122,7 +122,7 @@ module.exports = {
         error: "Failed to get hives by apiary"
       };
     })
-    .then(res.send);
+    .then(res.ok);
   },
 
   getOne: function(req, res) {
@@ -134,12 +134,13 @@ module.exports = {
         keepers: req.user.id
       }]
     })
-    .then(function(item) {
-      return item;
-    })
+    .then(_.identity)
     .catch(function(err) {
       sails.log.error("getOne", err);
+      return {
+        error: "Failed to find your hives"
+      };
     })
-    .then(res.send);
+    .then(res.ok);
   }
 };

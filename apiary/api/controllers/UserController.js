@@ -6,6 +6,9 @@
  */
 
 module.exports = {
+	me: function(req, res) {
+		return res.ok(req.user);
+	},
 	register: function(req, res) {
 		var username = req.headers.username || req.param("username");
     var password = req.headers.password || req.param("password");
@@ -25,7 +28,7 @@ module.exports = {
 			  Logging.error("Error in register, user query: " + err.toString());
 			  return res.jsonp(FailureResult.incorrectData("There is a problem with the data."));
 			} else if (user) {
-		      return res.send({
+		      return res.ok({
 						error: "Username already taken."
 					});
 			} else {
@@ -39,17 +42,17 @@ module.exports = {
 					}).then(function() {
 						req.login(user, function(loginErr) {
 							if (loginErr) {
-								return res.send({
+								return res.ok({
 									error: "Registration successful, but we couldn't log you in. Please try loggin in again."
 								});
 							} else {
-								return res.send(user);
+								return res.ok(user);
 							}
 						});
 					});
 				}).catch(function(err) {
 					sails.log.error("register", err);
-					return res.send({
+					return res.ok({
 						error: "Could not create your account."
 					});
 				});
