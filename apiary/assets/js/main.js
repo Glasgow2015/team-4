@@ -85,3 +85,117 @@ app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", functio
     })
   })
 }])
+
+app.constant("inspectionWeather", [
+  "Sunny",
+  "Partly cloudy",
+  "Cloudy",
+  "Rain",
+  "Windy"
+])
+
+app.constant("inspectionState", [
+  "Not in use / not installed",
+  "Not yet occupied",
+  "Occupied",
+  "Absconded",
+  "Dead, because of robbing",
+  "Dead, because of honey badger",
+  "Dead, because of mites",
+  "Dead, because of beetle",
+  "Dead, because of ants or other insects",
+  "Dead, because of fire",
+  "Dead, because of flood",
+  "Dead, reason unknown"
+])
+
+app.constant("inspectionStrenght", [
+  "Strong",
+  "Moderate",
+  "Weak",
+  "Critical"
+])
+
+app.constant("inspectionTemper", [
+  "Calm",
+  "Nervous",
+  "Angry"
+])
+
+app.constant("levels", [
+  "High",
+  "Average",
+  "Low"
+])
+
+app.constant("weights", [
+  "Light",
+  "Moderate",
+  "Heavy"
+])
+
+app.constant("conditions", [
+  "Good",
+  "Fair",
+  "Poor",
+  "Damaged"
+])
+
+app.controller("inspectionController", ["$scope", "inspectionWeather", "inspectionState", "inspectionStrenght", "inspectionTemper", "levels", "weights", "conditions",
+function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspectionTemper, levels, weights, conditions) {
+  $scope.inspection = {}
+  $scope.things = [
+    {
+      label: "Weather conditions",
+      model: "weather",
+      array: inspectionWeather
+    },{
+      label: "State of hive",
+      model: "state",
+      array: inspectionState
+    },{
+      label: "Strength of the colony",
+      model: "strength",
+      array: inspectionStrenght
+    },{
+      label: "Temper of the hive",
+      model: "temper",
+      array: inspectionTemper
+    },{
+      label: "Honey stores",
+      model: "honey",
+      array: levels
+    },{
+      label: "Pollen stores",
+      model: "pollen",
+      array: levels
+    },{
+      label: "Small Hive Beetle",
+      model: "beetle",
+      array: weights
+    },{
+      label: "Varrao Mites",
+      model: "mites",
+      array: weights
+    },{
+      label: "Hive Condition",
+      model: "hive_condition",
+      array: conditions
+    },{
+      label: "Proective clothing and tools condition",
+      model: "tools_condition",
+      array: conditions
+    }
+  ]
+
+  $scope.things.forEach(function(thing) {
+    temp = thing.array
+    thing.array = []
+    temp.forEach(function(t, index) {
+      thing.array.push({
+        value: index,
+        label: t
+      })
+    })
+  })
+}])

@@ -47,4 +47,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
+        .state("main.inspection", {
+          url: "/inspection",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/inspection.html',
+              controller: 'inspectionController'
+            }
+          }
+        })
 }])
