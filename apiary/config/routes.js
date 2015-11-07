@@ -32,6 +32,13 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+
+  "get  /logout": "AuthController.logout",
+  "post /api/auth/local/register": "UserController.register",
+  "get  /api/auth/local/:action": "AuthController.callback",
+  "get  /api/auth/:provider/callback": "AuthController.callback",
+  "get  /api/auth/:provider/:action": "AuthController.provider",
+
   'post /api/apiary/create': 'ApiaryController.create',
   'post /api/apiary/get': 'ApiaryController.get',
   'post /api/apiary/getOne': 'ApiaryController.getOne',

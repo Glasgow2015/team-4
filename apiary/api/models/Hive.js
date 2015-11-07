@@ -10,6 +10,11 @@ module.exports = {
       model: "User"
     },
 
+    keepers: {
+      collection: "User",
+      via: "keepingHives"
+    },
+
     apiary: {
       model: "Apiary"
     },
