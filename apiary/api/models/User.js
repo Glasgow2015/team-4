@@ -15,6 +15,9 @@ var User = {
     },
     keeping: {
       collection: "Apiary"
+    },
+    keepingHives: {
+      collection: "Hive"
     }
   }
 };

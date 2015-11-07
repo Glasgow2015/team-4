@@ -38,7 +38,10 @@ module.exports = {
   },
 
   addSponsor: function(req, res) {
-    Hive.findOne(req.param("hive"))
+    Hive.findOne({
+      id: req.param("hive"),
+      user: req.user.id
+    })
     .then(function(hive) {
       hive.sponsors.add(req.param("newSponsor"));
       return hive.save();
@@ -51,9 +54,47 @@ module.exports = {
   },
 
   removeSponsor: function(req, res) {
-    Hive.findOne(req.param("hive"))
+    Hive.findOne({
+      id: req.param("hive"),
+      user: req.user.id
+    })
     .then(function(hive) {
       hive.sponsors.remove(req.param("newSponsor"));
+      return hive.save();
+    }).catch(function(err) {
+      sails.log.error("removeSponsor", err);
+      return {
+        error: "Failed to remove a sponsor"
+      };
+    }).then(res.send);
+  },
+
+  addKeeper: function(req, res) {
+    Hive.findOne({
+      id: req.param("hive"),
+      user: req.user.id
+    })
+    .then(function(hive) {
+      hive.keepers.add(req.param("newSponsor"));
+      return hive.save();
+    }).catch(function(err) {
+      sails.log.error("addSponsor", err);
+      return {
+        error: "Failed to add a sponsor"
+      };
+    }).then(res.send);
+  },
+
+  removeKeeper: function(req, res) {
+    Hive.findOne({
+      id: req.param("hive"),
+      user: req.user.id
+    })
+    .then(function(hive) {
+      if (!hive) {
+        throw new Error("No hive found");
+      }
+      hive.keepers.remove(req.param("newSponsor"));
       return hive.save();
     }).catch(function(err) {
       sails.log.error("removeSponsor", err);
@@ -67,7 +108,12 @@ module.exports = {
     Apiary.findOne(req.param("apiary"))
     .then(function(apiary) {
       return Hive.find({
-        apiary: apiary.id
+        apiary: apiary.id,
+        or: [{
+          user: req.user.id
+        }, {
+          keepers: req.user.id
+        }]
       });
     })
     .catch(function(err) {
@@ -80,7 +126,13 @@ module.exports = {
   },
 
   getOne: function(req, res) {
-    Hive.findOne(req.param("hive"))
+    Hive.findOne({
+      or: [{
+        user: req.user.id
+      }, {
+        keepers: req.user.id
+      }]
+    })
     .then(_.identity)
     .catch(function(err) {
       sails.log.error("getOne", err);
