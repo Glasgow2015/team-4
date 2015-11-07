@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2>Create Apiary</h2>
+    <div class="form-group">
+      <label>Apiary Name</label>
+      <input type="text" class="form-control" placeholder="Apiary Name" ng-model="apiary.name">
+    </div>
+    <div class="form-group">
+      <label>Year of commencing apiary</label>
+      <input type="text" class="form-control" placeholder="Year" ng-model="apiary.year">
+    </div>
+    <div class="form-group">
+      <label>Harvesting Months</label>
+      <input type="text" class="form-control" placeholder="Year" ng-model="apiary.months">
+    </div>
+  </div>
+</div>
+<div class="col-md-6" ng-repeat="q in questions" style="border-radius:0px; border-bottom: 1px solid gray; height: 75px">
+  <div class="col-md-9">
+    <p style="margin:15px">{{q.string}}</p>
+  </div>
+  <div class="col-md-3">
+    <md-switch ng-model="q.value" ng-true-value="true" ng-false-value="false" class="md-primary md-block">
+      <b>{{readableTruthy(q.value)}}</b>
+    </md-switch>
+  </div>
+</div>
+<div class="row" style="margin-bottom:10px">
+  <div class="col-md-2 col-md-offset-10">
+    <button class="btn btn-primary btn-block" ng-click="create()" type="button">Create</button>
+  </div>
+</div>
