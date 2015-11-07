@@ -27,6 +27,12 @@ module.exports.policies = {
   ***************************************************************************/
 
   '*': false,
+  UserController: {
+    register: ['passport'],
+  },
+  AuthController: {
+    '*': 'passport'
+  },
   ApiaryController: {
     create: ['sessionAuth'],
     get: ['sessionAuth'],
