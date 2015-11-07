@@ -21,10 +21,10 @@ module.exports = {
       type: "date"
     },
     type: {
-      model: "answer"
+      type: "string"
     },
     exposure: {
-      model: "answer"
+      type: "string"
     }
   }
 };
