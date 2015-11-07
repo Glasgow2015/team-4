@@ -63,11 +63,28 @@ module.exports = {
     }).then(res.send);
   },
 
-  get: function(req, res) {
-
+  getByApiary: function(req, res) {
+    Apiary.findOne(req.param("apiary"))
+    .then(function(apiary) {
+      return Hive.find({
+        apiary: apiary.id
+      });
+    })
+    .catch(function(err) {
+      sails.log.error("getByApiary", err);
+      return {
+        error: "Failed to get hives by apiary"
+      };
+    })
+    .then(res.send);
   },
 
   getOne: function(req, res) {
-
+    Hive.findOne(req.param("hive"))
+    .then(_.identity)
+    .catch(function(err) {
+      sails.log.error("getOne", err);
+    })
+    .then(res.send);
   }
 };

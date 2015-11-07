@@ -34,6 +34,8 @@ module.exports.policies = {
     create: ['sessionAuth'],
     addSponsor: ['sessionAuth'],
     removeSponsor: ['sessionAuth'],
+    getOne: ['sessionAuth'],
+    getByApiary: ['sessionAuth'],
   },
   InspectionController: {
     create: ['sessionAuth']
