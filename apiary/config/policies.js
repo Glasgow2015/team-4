@@ -29,6 +29,7 @@ module.exports.policies = {
   '*': false,
   UserController: {
     register: ['passport'],
+    me: ['sessionAuth'],
   },
   AuthController: {
     '*': 'passport'

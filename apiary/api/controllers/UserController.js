@@ -6,6 +6,9 @@
  */
 
 module.exports = {
+	me: function(req, res) {
+		return res.send(req.user);
+	},
 	register: function(req, res) {
 		var username = req.headers.username || req.param("username");
     var password = req.headers.password || req.param("password");

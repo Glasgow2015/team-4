@@ -126,19 +126,23 @@ module.exports = {
   },
 
   getOne: function(req, res) {
+    console.log(req.param("hive"))
     Hive.findOne({
       id: req.param("hive"),
-      or: [{
-        user: req.user.id
-      }, {
-        keepers: req.user.id
-      }]
+      // or: [{
+      //   user: req.user.id
+      // }, {
+      //   keepers: req.user.id
+      // }]
     })
     .then(function(item) {
       return item;
     })
     .catch(function(err) {
       sails.log.error("getOne", err);
+      return {
+        error: "Failed to find your hives"
+      };
     })
     .then(res.send);
   }

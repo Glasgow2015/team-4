@@ -39,6 +39,8 @@ module.exports.routes = {
   "get  /api/auth/:provider/callback": "AuthController.callback",
   "get  /api/auth/:provider/:action": "AuthController.provider",
 
+  "get /api/me": "UserController.me",
+
   'post /api/apiary/create': 'ApiaryController.create',
   'get /api/apiary/get': 'ApiaryController.get',
   'get /api/apiary/getOne': 'ApiaryController.getOne',
