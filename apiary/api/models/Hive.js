@@ -12,7 +12,8 @@ module.exports = {
 
     keepers: {
       collection: "User",
-      via: "keepingHives"
+      via: "keepingHives",
+      dominant: true
     },
 
     apiary: {

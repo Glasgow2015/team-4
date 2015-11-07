@@ -34,6 +34,6 @@ module.exports = {
       return {
         error: "Failed to create new Inspection"
       };
-    }).then(res.send);
+    }).then(res.ok);
   }
 };

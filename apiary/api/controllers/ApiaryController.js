@@ -4,7 +4,7 @@ module.exports = {
     var log = parseFloat(req.param("log"));
 
     if (isNaN(lat) || isNaN(log)) {
-      return res.send({
+      return res.ok({
         error: "incorrect gps data received"
       });
     }
@@ -48,7 +48,7 @@ module.exports = {
 
     Apiary.create(newApiary)
     .then(function(apiary){
-      res.send(apiary);
+      res.ok(apiary);
     });
   },
 
@@ -61,7 +61,7 @@ module.exports = {
       return {
         error: "Failed to get apiary"
       };
-    }).then(res.send);
+    }).then(res.ok);
   },
 
   getOne: function(req, res) {
@@ -74,7 +74,7 @@ module.exports = {
       return {
         error: "Failed to get apiary"
       };
-    }).then(res.send);
+    }).then(res.ok);
   },
 
   addBeekeeper: function(req, res) {
@@ -89,7 +89,7 @@ module.exports = {
       return {
         error: "Failed to add beekeeper"
       };
-    }).then(res.send);
+    }).then(res.ok);
   },
 
   removeBeekeeper: function(req, res) {
@@ -104,6 +104,6 @@ module.exports = {
       return {
         error: "Failed to add beekeeper"
       };
-    }).then(res.send);
+    }).then(res.ok);
   }
 };
