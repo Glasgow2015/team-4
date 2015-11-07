@@ -200,7 +200,7 @@ function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspect
   })
 }])
 
-app.controller("registerController", ["$scope", "$state", "$http", function($scope, $state, $http) {
+app.controller("registerController", ["$scope", "$state", "$http", "User", function($scope, $state, $http, User) {
   $scope.user = {
     username: "",
     password: ""
@@ -213,7 +213,8 @@ app.controller("registerController", ["$scope", "$state", "$http", function($sco
               email: $scope.email
           }
       }).success(function(res) {
-          $state.go("main");
+        User.setCurrent(res);
+        $state.go("main");
       });
   }
 }])
@@ -229,7 +230,7 @@ app.controller("loginController", ["$scope", "$state", "$http", "User", function
               Authorization: "Basic " + btoa($scope.user.username + ":" + $scope.user.password)
           }
       }).success(function(res) {
-        User.setCurrent(user);
+        User.setCurrent(res);
         $state.go("main");
       })
   };
