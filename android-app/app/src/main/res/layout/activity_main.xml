@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.jpmorganchase.apiary.MainActivity">
 
-    <ScrollView
-        android:layout_width="fill_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView" >
+        android:text="Create Hive"
+        android:id="@+id/btnCreateHive"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Inspection"
+        android:id="@+id/btnCreateInspection"
+        android:layout_below="@+id/btnCreateHive"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
 
-            <include layout="@layout/question_hive_name"/>
-
-            <include layout="@layout/question_hive_type"/>
-
-            <include layout="@layout/question_hive_date_of_installation"/>
-
-            <include layout="@layout/question_hive_sun_exposure"/>
-
-        </LinearLayout>
-    </ScrollView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Apiary"
+        android:id="@+id/btnCreateApiary"
+        android:layout_above="@+id/btnCreateHive"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
 </RelativeLayout>
