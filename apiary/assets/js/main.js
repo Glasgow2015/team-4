@@ -53,3 +53,35 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", function($scope
 
 app.controller("navbarController", ["$scope", function($scope) {
 }])
+
+app.constant("hiveTypes", [
+  "Traditional hive",
+  "Top bar hive",
+  "Top bar hive with queen excluder",
+  "Langstroth hive",
+  "Other"
+])
+
+app.constant("hiveExposure", [
+  "Shady",
+  "Partial shade",
+  "Sunny"
+])
+
+app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", function($scope, hiveTypes, hiveExposure) {
+  $scope.hive = {}
+  $scope.types = []
+  $scope.exposures = []
+  hiveTypes.forEach(function(type, index) {
+    $scope.types.push({
+      value: index,
+      label: type
+    })
+  })
+  hiveExposure.forEach(function(exposure, index) {
+    $scope.exposures.push({
+      value: index,
+      label: exposure
+    })
+  })
+}])
