@@ -1,5 +1,8 @@
 module.exports = {
   attributes: {
+    creator: {
+      model: "User"
+    },
     date: {
       type: "date",
       defaultsTo: function() {
@@ -15,7 +18,7 @@ module.exports = {
     assistantsClothing: {
       type: "boolean"
     },
-    smoler: {
+    smoker: {
       type: "boolean"
     },
     buckets: {
