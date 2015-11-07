@@ -8,14 +8,19 @@
  *
  */
 module.exports = function(req, res, next) {
-
-  // User is allowed, proceed to the next policy, 
-  // or if this is the last policy, the controller
-  if (req.session.authenticated) {
-    return next();
-  }
-
-  // User is not allowed
-  // (default res.forbidden() behavior can be overridden in `config/403.js`)
-  return res.forbidden('You are not permitted to perform this action.');
+  passport.initialize()(req, res, function () {
+    passport.session()(req, res, function () {
+      if (!req.user) {
+        return res.send({
+          error: "Please log in"
+        });
+      }
+      next();
+    });
+  });
+  // if (req.session.authenticated) {
+  //   next();
+  // }
+  //
+  // res.forbidden("Life sucks");
 };

@@ -30,23 +30,24 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
-    //   'startRequestTimer',
-    //   'cookieParser',
-    //   'session',
-    //   'myRequestLogger',
-    //   'bodyParser',
-    //   'handleBodyParserError',
-    //   'compress',
-    //   'methodOverride',
-    //   'poweredBy',
-    //   '$custom',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //   '404',
-    //   '500'
-    // ],
+    order: [
+      'startRequestTimer',
+      'cookieParser',
+      'session',
+      'myRequestLogger',
+      'bodyParser',
+      'handleBodyParserError',
+      'compress',
+      'methodOverride',
+      'poweredBy',
+      '$custom',
+      'param',
+      'router',
+      'www',
+      'favicon',
+      '404',
+      '500'
+    ],
 
   /****************************************************************************
   *                                                                           *
@@ -54,6 +55,12 @@ module.exports.http = {
   *                                                                           *
   ****************************************************************************/
 
+    param: function(req, res, next) {
+      req.param = function(thing) {
+        return req.params[thing] || req.query[thing] || req.body[thing];
+      };
+      next();
+    }
     // myRequestLogger: function (req, res, next) {
     //     console.log("Requested :: ", req.method, req.url);
     //     return next();
