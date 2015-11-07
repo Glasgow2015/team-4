@@ -11,7 +11,7 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" ng-show="currentUser">
         <li class="dropdown">
           <a type="button" data-animation="am-flip-x" bs-dropdown aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span>
           </a>
@@ -25,8 +25,10 @@
         <li><a href="#">Reports</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="main.login" ng-hide="currentUser">Login</a></li>
-        <li><a ui-sref="main.register" ng-hide="currentUser">Register</a></li>
+        <li><a ui-sref="login" ng-hide="currentUser">Login</a></li>
+        <li><a ui-sref="register" ng-hide="currentUser">Register</a></li>
+        <li><a ng-show="currentUser">{{currentUser.username}}</a></li>
+        <li><a ng-show="currentUser" ng-click="logout()">Logout</a></li>
       </ul>
     </div>
   </div>

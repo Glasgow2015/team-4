@@ -1,11 +1,10 @@
 var app = angular.module("mainModule", []);
 
-app.controller("mainController", [function() {
-
+app.controller("mainController", ["currentUser", "$scope", function(currentUser, $scope) {
+  $scope.currentUser = currentUser;
 }])
 
 app.controller("masterController", ["User", "$scope", function(User, $scope) {
-  $scope.currentUser = User.getCurrent();
 }])
 
 app.controller("apiaryController", ["$scope", "apiaryQuestions", function($scope, apiaryQuestions) {
@@ -51,7 +50,12 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", function($scope
   "Honey badger stand"
 ])
 
-app.controller("navbarController", ["$scope", "User", function($scope, User) {
+app.controller("navbarController", ["$scope", "$http", "$state", function($scope, $http, $state) {
+  $scope.logout = function() {
+    $http.get("/logout").success(function() {
+      $state.go("login");
+    })
+  }
 }])
 
 app.constant("hiveTypes", [
@@ -200,7 +204,7 @@ function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspect
   })
 }])
 
-app.controller("registerController", ["$scope", "$state", "$http", "User", function($scope, $state, $http, User) {
+app.controller("registerController", ["$scope", "$state", "$http", function($scope, $state, $http) {
   $scope.user = {
     username: "",
     password: ""
@@ -213,26 +217,24 @@ app.controller("registerController", ["$scope", "$state", "$http", "User", funct
               email: $scope.email
           }
       }).success(function(res) {
-        User.setCurrent(res);
         $state.go("main");
       });
   }
 }])
 
-app.controller("loginController", ["$scope", "$state", "$http", "User", function($scope, $state, $http, User) {
+app.controller("loginController", ["$scope", "$state", "$http", function($scope, $state, $http) {
   $scope.user = {
     username: "",
     password: ""
   }
   $scope.login = function() {
-      $http.get("/api/auth/local/login/", {
-          headers: {
-              Authorization: "Basic " + btoa($scope.user.username + ":" + $scope.user.password)
-          }
-      }).success(function(res) {
-        User.setCurrent(res);
-        $state.go("main");
-      })
+    $http.get("/api/auth/local/login/", {
+        headers: {
+            Authorization: "Basic " + btoa($scope.user.username + ":" + $scope.user.password)
+        }
+    }).success(function(res) {
+      $state.go("main");
+    })
   };
 }])
 
