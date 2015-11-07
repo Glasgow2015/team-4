@@ -26,7 +26,10 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': false,
+  ApiaryController: {
+    create: ['sessionAuth']
+  }
 
   /***************************************************************************
   *                                                                          *
@@ -48,4 +51,5 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
 };
