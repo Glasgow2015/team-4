@@ -19,38 +19,40 @@ module.exports = {
 		User.findOne({
 			or: [{
 			  "username": username
-			}, {
-			  "email": email
 			}]
 		}, function(err, user) {
 			if (err) {
 			  Logging.error("Error in register, user query: " + err.toString());
 			  return res.jsonp(FailureResult.incorrectData("There is a problem with the data."));
 			} else if (user) {
-			  if (user.username === username) {
-			      return res.jsonp(FailureResult.nameTaken("Username already taken."));
-			  } else {
-			      return res.jsonp(FailureResult.nameTaken("There is an account associated with this email."));
-			  }
+		      return res.send({
+						error: "Username already taken."
+					});
 			} else {
-			  var new_token = Utils.token_generator();
-			  User.create_new(username, password, email, new_token, false, function(err, user) {
-			      if (err) {
-			          return res.send({
-									error: "Could not create your account."
+			  return User.create({
+					username: username
+				}).then(function(user) {
+					return Passport.create({
+						protocol: 'local',
+						password: password,
+						user: user.id
+					}).then(function() {
+						req.login(user, function(loginErr) {
+							if (loginErr) {
+								return res.send({
+									error: "Registration successful, but we couldn't log you in. Please try loggin in again."
 								});
-			      } else {
-		          req.login(user, function(loginErr) {
-	              if (loginErr) {
-                  return res.send({
-										error: "Registration successful, but we couldn't log you in. Please try loggin in again."
-									});
-	              } else {
-                  return res.send(new_token);
-	              }
-		          });
-			      }
-			  });
+							} else {
+								return res.send(new_token);
+							}
+						});
+					});
+				}).catch(function(err) {
+					sails.log.error("register", err);
+					return res.send({
+						error: "Could not create your account."
+					});
+				});
 			}
 		});
 	}
