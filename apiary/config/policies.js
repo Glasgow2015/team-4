@@ -32,6 +32,9 @@ module.exports.policies = {
   },
   HiveController: {
     create: ['sessionAuth']
+  },
+  InspectionController: {
+    create: ['sessionAuth']
   }
 
   /***************************************************************************
