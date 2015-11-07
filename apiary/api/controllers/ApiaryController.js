@@ -53,6 +53,11 @@ module.exports = {
     Apiary.create(newApiary)
     .then(function(apiary){
       res.ok(apiary);
+    }).catch(function(err) {
+      sails.log.err("create", err);
+      res.ok({
+        error: "Failed to create apiary"
+      });
     });
   },
 

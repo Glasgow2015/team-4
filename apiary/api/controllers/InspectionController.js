@@ -37,11 +37,9 @@ module.exports = {
     }).then(res.ok);
   },
 
-  get: function(req, res) {
-
-  },
-
   getByHive: function(req, res) {
+    return Hive.findOne({
 
+    });
   }
 };
