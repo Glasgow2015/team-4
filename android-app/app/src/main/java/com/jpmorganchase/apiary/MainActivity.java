@@ -40,7 +40,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 intent = new Intent(this, HiveActivity.class);
                 break;
             case R.id.btnCreateInspection:
-                intent = new Intent(this, HiveActivity.class);
+                intent = new Intent(this, InspectionActivity.class);
                 break;
         }
 
