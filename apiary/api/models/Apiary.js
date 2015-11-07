@@ -7,6 +7,11 @@ module.exports = {
       type: 'string'
     },
 
+    hives: {
+      collection: "Hive",
+      via: "apiary"
+    },
+
     // GPS
     lat: {
       type: 'number'

@@ -10,6 +10,15 @@ module.exports = {
       model: "User"
     },
 
+    apiary: {
+      model: "Apiary"
+    },
+
+    sponsors: {
+      collection: "User",
+      via: "hives"
+    },
+
     // GPS
     lat: {
       type: 'number'
