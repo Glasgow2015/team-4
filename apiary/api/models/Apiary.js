@@ -7,6 +7,10 @@ module.exports = {
       type: 'string'
     },
 
+    months: {
+      type: 'json'
+    },
+
     beekeepers: {
       collection: "User",
       via: "keeping"

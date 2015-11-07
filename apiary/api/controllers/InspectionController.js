@@ -35,5 +35,13 @@ module.exports = {
         error: "Failed to create new Inspection"
       };
     }).then(res.ok);
+  },
+
+  get: function(req, res) {
+
+  },
+
+  getByHive: function(req, res) {
+
   }
 };

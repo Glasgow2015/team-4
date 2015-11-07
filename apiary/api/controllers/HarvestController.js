@@ -19,5 +19,13 @@ module.exports = {
 
     return Harvest.create(newHarvest)
     .then(res.ok);
+  },
+
+  get: function(req, res) {
+
+  },
+
+  getByHive: function(req, res) {
+    
   }
 };

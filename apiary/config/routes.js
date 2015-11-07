@@ -42,15 +42,17 @@ module.exports.routes = {
   "get /api/me": "UserController.me",
 
   'post /api/apiary/create': 'ApiaryController.create',
-  'get /api/apiary/get': 'ApiaryController.get',
-  'get /api/apiary/getOne': 'ApiaryController.getOne',
+  'get /api/apiary/:apiary': 'ApiaryController.get',
+  'get /api/apiary/:apiary/one': 'ApiaryController.getOne',
   'post /api/apiary/beekeeper/add': 'ApiaryController.addBeekeeper',
   'post /api/apiary/beekeeper/remove': 'ApiaryController.removeBeekeeper',
+
   'post /api/hive/create': 'HiveController.create',
   'post /api/hive/sponsor/add': 'HiveController.addSponsor',
   'post /api/hive/sponsor/remove': 'HiveController.removeSponsor',
   'get  /api/hive/:hive': 'HiveController.getOne',
   'get  /api/hive/:apiary/apiary': 'HiveController.getByApiary',
+
   'post /api/inspection/create': 'InspectionController.create',
   'post /api/harvest/create': 'HarvestController.create'
 

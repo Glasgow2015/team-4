@@ -3,7 +3,9 @@ module.exports = {
     var lat = parseFloat(req.param("lat"));
     var log = parseFloat(req.param("log"));
 
-    if (isNaN(lat) || isNaN(log)) {
+    var year = parseInt(req.param("year"));
+
+    if (isNaN(lat) || isNaN(log) || isNaN(year)) {
       return res.ok({
         error: "incorrect gps data received"
       });
@@ -14,11 +16,13 @@ module.exports = {
 
       user: req.user.id,
 
+      months: req.param("months"),
+
       // GPS
       lat: lat,
       log: log,
 
-      startYear: new Date(req.param("date")),
+      startYear: year,
 
       // questions
       environment: {
