@@ -40,8 +40,8 @@ module.exports.routes = {
   "get  /api/auth/:provider/:action": "AuthController.provider",
 
   'post /api/apiary/create': 'ApiaryController.create',
-  'post /api/apiary/get': 'ApiaryController.get',
-  'post /api/apiary/getOne': 'ApiaryController.getOne',
+  'get /api/apiary/get': 'ApiaryController.get',
+  'get /api/apiary/getOne': 'ApiaryController.getOne',
   'post /api/apiary/beekeeper/add': 'ApiaryController.addBeekeeper',
   'post /api/apiary/beekeeper/remove': 'ApiaryController.removeBeekeeper',
   'post /api/hive/create': 'HiveController.create',
