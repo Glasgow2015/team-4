@@ -227,8 +227,23 @@ passport.callback = function (req, res, next) {
   // Passport.js wasn't really built for local user registration, but it's nice
   // having it tied into everything else.
   if (provider === 'local' && action !== undefined) {
-    if (action === 'register' && !req.user) {
-      this.protocols.local.register(req, res, next);
+    if (action === 'login' && !req.user) {
+      req.session.authenticated = true;
+      var username = req.headers.username || req.query.username;
+      var password = req.headers.password || req.query.password;
+      if (req.headers.authorization) {
+          var token = req.headers.authorization.split(" ")[1];
+          if (token) {
+              var info = new Buffer(req.headers.authorization.split(" ")[1], "base64").toString("ascii").split(":");
+              username = info[0];
+              password = info[1];
+          } else {
+              return res.send({
+                error: "Invalid username and password sent."
+              });
+          }
+      }
+      this.protocols.local.login(req, res, username, password, next);
     }
     else if (action === 'connect' && req.user) {
       this.protocols.local.connect(req, res, next);

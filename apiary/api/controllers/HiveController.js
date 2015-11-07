@@ -127,13 +127,16 @@ module.exports = {
 
   getOne: function(req, res) {
     Hive.findOne({
+      id: req.param("hive"),
       or: [{
         user: req.user.id
       }, {
         keepers: req.user.id
       }]
     })
-    .then(_.identity)
+    .then(function(item) {
+      return item;
+    })
     .catch(function(err) {
       sails.log.error("getOne", err);
     })

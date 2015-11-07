@@ -38,7 +38,6 @@ module.exports = {
 						user: user.id
 					}).then(function() {
 						req.login(user, function(loginErr) {
-							console.log(loginErr);
 							if (loginErr) {
 								return res.send({
 									error: "Registration successful, but we couldn't log you in. Please try loggin in again."

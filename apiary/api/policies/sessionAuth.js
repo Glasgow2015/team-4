@@ -8,15 +8,19 @@
  *
  */
 module.exports = function(req, res, next) {
-  passport.initialize()(req, res, function() {
-    // Use the built-in sessions
-    passport.session()(req, res, function() {
+  passport.initialize()(req, res, function () {
+    passport.session()(req, res, function () {
       if (!req.user) {
         return res.send({
-          error: "Please log in."
+          error: "Please log in"
         });
       }
       next();
     });
   });
+  // if (req.session.authenticated) {
+  //   next();
+  // }
+  //
+  // res.forbidden("Life sucks");
 };

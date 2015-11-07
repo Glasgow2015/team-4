@@ -59,28 +59,28 @@ var AuthController = {
     if (req.param("error") || req.param("denied") || req.param("error_message")) {
         var errorDescription = req.param("error_description") || req.param("error_message");
         return res.send({
-          error: "Failed"
+          error: "Failed1"
         });
     }
     passport.callback(req, res, function(err, user) {
       if (err) {
           return res.send({
-            error: "Failed"
+            error: "Failed2"
           });
       } else {
         req.login(user, function(loginErr) {
           if (loginErr) {
               return res.send({
-                error: "Failed"
+                error: "Failed3"
               });
           } else {
               // Upon successful login, send the user to the homepage were req.user
               // will be available.
               if (req.param("provider", "local") == "local") {
-                  return res.send(user, "Login successful.");
+                  return res.send(user);
               } else {
                   return res.send({
-                    error: "Failed"
+                    error: "Failed4"
                   });
               }
           }
