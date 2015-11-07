@@ -1,62 +1,49 @@
 package com.jpmorganchase.apiary;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
 
-
-    Button newApiaryButton;
-    Button newHiveButton;
-    Button newInspectionButton;
-
+    Button btnCreateApiary;
+    Button btnCreateHive;
+    Button btnCreateInspection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        newApiaryButton = (Button) findViewById(R.id.button);
-        newApiaryButton.setOnClickListener(this);
-        newHiveButton = (Button) findViewById(R.id.button2);
-        newHiveButton.setOnClickListener(this);
-        newInspectionButton = (Button) findViewById(R.id.button3);
-        newInspectionButton.setOnClickListener(this);
+
+        btnCreateApiary = (Button) findViewById(R.id.btnCreateApiary);
+        btnCreateHive = (Button) findViewById(R.id.btnCreateHive);
+        btnCreateInspection = (Button) findViewById(R.id.btnCreateInspection);
+
+        btnCreateApiary.setOnClickListener(this);
+        btnCreateHive.setOnClickListener(this);
+        btnCreateInspection.setOnClickListener(this);
     }
 
-    private void apiaryButtonClicked()
-    {
-        startActivity(new Intent("jpmorganchase.apiary"));
-    }
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
 
-    private void hiveButtonClicked()
-    {
-        startActivity(new Intent("jpmorganchase.hive"));
-    }
-
-    private void newInspectionButtonClicked()
-    {
-        startActivity(new Intent("jpmorganchase.newInspection"));
-    }
-
-    public void onClick(View v)
-    {
-        switch(v.getId())
-        {
-            case R.id.button:
-                apiaryButtonClicked();
+        switch (v.getId()) {
+            case R.id.btnCreateApiary:
+                intent = new Intent(this, HiveActivity.class);
                 break;
-            case R.id.button2:
-                hiveButtonClicked();
+            case R.id.btnCreateHive:
+                intent = new Intent(this, HiveActivity.class);
                 break;
-            case R.id.button3:
-            newInspectionButtonClicked();
-            break;
+            case R.id.btnCreateInspection:
+                intent = new Intent(this, HiveActivity.class);
+                break;
         }
+
+        startActivity(intent);
     }
-
-
 }
