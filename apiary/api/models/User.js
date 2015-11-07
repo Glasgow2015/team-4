@@ -12,6 +12,9 @@ var User = {
     },
     type: {
       type: 'string'
+    },
+    keeping: {
+      collection: "Apiary"
     }
   }
 };

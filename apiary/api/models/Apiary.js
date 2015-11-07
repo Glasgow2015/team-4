@@ -7,6 +7,11 @@ module.exports = {
       type: 'string'
     },
 
+    beekeepers: {
+      collection: "User",
+      via: "keeping"
+    },
+
     hives: {
       collection: "Hive",
       via: "apiary"

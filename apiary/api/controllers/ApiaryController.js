@@ -50,5 +50,60 @@ module.exports = {
     .then(function(apiary){
       res.send(apiary);
     });
+  },
+
+  get: function(req, res) {
+    Apiary.find({
+      beekeepers: req.user.id
+    }).then(_.identity)
+    .catch(function(err) {
+      sails.log.error("get", err);
+      return {
+        error: "Failed to get apiary"
+      };
+    }).then(res.send);
+  },
+
+  getOne: function(req, res) {
+    Apiary.findOne({
+      id: req.param("apiary"),
+      beekeepers: req.user.id
+    }).then(_.identity)
+    .catch(function(err) {
+      sails.log.error("getOne", err);
+      return {
+        error: "Failed to get apiary"
+      };
+    }).then(res.send);
+  },
+
+  addBeekeeper: function(req, res) {
+    Apiary.findOne({
+      id: req.param("apiary"),
+      beekeepers: req.user.id
+    }).then(function(apiary) {
+      apiary.beekeepers.add(req.param("user"));
+      return apiary.save();
+    }).catch(function(err) {
+      sails.log.error("addBeekeeper", err);
+      return {
+        error: "Failed to add beekeeper"
+      };
+    }).then(res.send);
+  },
+
+  removeBeekeeper: function(req, res) {
+    Apiary.findOne({
+      id: req.param("apiary"),
+      beekeepers: req.user.id
+    }).then(function(apiary) {
+      apiary.beekeepers.remove(req.param("user"));
+      return apiary.save();
+    }).catch(function(err) {
+      sails.log.error("addBeekeeper", err);
+      return {
+        error: "Failed to add beekeeper"
+      };
+    }).then(res.send);
   }
 };

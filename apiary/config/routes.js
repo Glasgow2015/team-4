@@ -33,6 +33,10 @@ module.exports.routes = {
   ***************************************************************************/
 
   'post /api/apiary/create': 'ApiaryController.create',
+  'post /api/apiary/get': 'ApiaryController.get',
+  'post /api/apiary/getOne': 'ApiaryController.getOne',
+  'post /api/apiary/beekeeper/add': 'ApiaryController.addBeekeeper',
+  'post /api/apiary/beekeeper/remove': 'ApiaryController.removeBeekeeper',
   'post /api/hive/create': 'HiveController.create',
   'post /api/hive/sponsor/add': 'HiveController.addSponsor',
   'post /api/hive/sponsor/remove': 'HiveController.removeSponsor',
