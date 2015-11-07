@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="weather_conditions">
+        <item>@string/sunny</item>
+        <item>@string/partly_cloudy</item>
+        <item>@string/cloudy</item>
+        <item>@string/rain</item>
+        <item>@string/windy</item>
+    </string-array>
+
+    <string-array name="state_of_hive">
+        <item>@string/occupied</item>
+        <item>@string/absconded</item>
+        <item>@string/dead_robbing</item>
+        <item>@string/dead_hbadger</item>
+        <item>@string/dead_mites</item>
+        <item>@string/dead_beetles</item>
+        <item>@string/dead_insects</item>
+        <item>@string/dead_fire</item>
+        <item>@string/dead_flood</item>
+        <item>@string/dead_unkn</item>
+    </string-array>
+
+    <string-array name="state_of_colony">
+        <item>@string/strong</item>
+        <item>@string/moderate</item>
+        <item>@string/weak</item>
+        <item>@string/critical</item>
+    </string-array>
+</resources>

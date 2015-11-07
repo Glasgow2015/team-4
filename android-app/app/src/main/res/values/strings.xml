@@ -8,4 +8,35 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_apiary">ApiaryActivity</string>
     <string name="title_activity_new_inspection">NewInspectionActivity</string>
+    <!--Other string resources also defined in this file… -->
+    <string name="hive_number">Hive Number</string>
+    <string name="inspection_date">Inspection Date</string>
+
+    <string name="weather_conditions">Weather Conditions</string>
+    <string name="sunny">Sunny</string>
+    <string name="partly_cloudy">Partly Cloudy</string>
+    <string name="cloudy">Cloudy</string>
+    <string name="rain">Rain</string>
+    <string name="windy">Windy</string>
+    <string name="send">Send</string>
+
+    <string name="state_of_hive">State of Hive</string>
+    <string name="occupied">Occupied</string>
+    <string name="absconded">Absconded</string>
+    <string name="dead_robbing">Dead. cause: robbing</string>
+    <string name="dead_hbadger">Dead. cause: honey badger</string>
+    <string name="dead_mites">Dead. cause: mites</string>
+    <string name="dead_beetles">Dead. cause: beetles</string>
+    <string name="dead_insects">Dead. cause: insects</string>
+    <string name="dead_fire">Dead. cause: fire</string>
+    <string name="dead_flood">Dead. cause: flood</string>
+    <string name="dead_unkn">Dead. cause: unknown</string>
+
+    <string name="state_of_colony">State of the Colony</string>
+    <string name="strong">Strong</string>
+    <string name="moderate">Moderate</string>
+    <string name="weak">Weak</string>
+    <string name="critical">Critical</string>
+
+
 </resources>
