@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2>Create Inspection</h2>
+    <div class="form-group">
+      <label>Hive Number</label>
+      <input type="text" class="form-control" placeholder="Hive Number" ng-model="inspection.hive">
+    </div>
+    <div class="form-group">
+      <label>Date of inspection</label>
+      <input type="text" class="form-control" placeholder="Date" ng-model="inspection.date">
+    </div>
+    <div class="form-group" ng-repeat="question in things">
+      <label>{{question.label}}:&nbsp;</label>
+      <button type="button" class="btn btn-default" ng-model="apiary[question.model]" placeholder="Choose..." bs-options="option.value as option.label for option in question.array" bs-select>
+        Action <span class="caret"></span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-bottom:10px">
+  <div class="col-md-2 col-md-offset-10">
+    <button class="btn btn-primary btn-block" ng-click="create()" type="button">Create</button>
+  </div>
+</div>
