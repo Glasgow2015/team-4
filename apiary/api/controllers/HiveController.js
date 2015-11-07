@@ -51,7 +51,16 @@ module.exports = {
   },
 
   removeSponsor: function(req, res) {
-
+    Hive.findOne(req.param("hive"))
+    .then(function(hive) {
+      hive.sponsors.remove(req.param("newSponsor"));
+      return hive.save();
+    }).catch(function(err) {
+      sails.log.error("removeSponsor", err);
+      return {
+        error: "Failed to remove a sponsor"
+      };
+    }).then(res.send);
   },
 
   get: function(req, res) {
