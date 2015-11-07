@@ -23,9 +23,42 @@ module.exports = {
       exposure: req.param("exposure")
     };
 
-    Hive.create(newHive)
+    return Apiary.findOne(req.param("apiary"))
+    .then(function(apiary) {
+      newHive.apiary = apiary.id;
+      return newHive;
+    })
+    .then(Hive.create)
+    .catch(function(err) {
+      return {
+        error: "Failed to create a new hive"
+      };
+    })
+    .then(res.send);
+  },
+
+  addSponsor: function(req, res) {
+    Hive.findOne(req.param("hive"))
     .then(function(hive) {
-      return res.send(hive);
-    });
+      hive.sponsors.add(req.param("newSponsor"));
+      return hive.save();
+    }).catch(function(err) {
+      sails.log.error("addSponsor", err);
+      return {
+        error: "Failed to add a sponsor"
+      };
+    }).then(res.send);
+  },
+
+  removeSponsor: function(req, res) {
+
+  },
+
+  get: function(req, res) {
+
+  },
+
+  getOne: function(req, res) {
+
   }
 };
