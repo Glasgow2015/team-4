@@ -25,6 +25,9 @@ module.exports = {
     },
     accessibility: {
       type: 'json'
+    },
+    type: {
+      type: 'json'
     }
   }
 };

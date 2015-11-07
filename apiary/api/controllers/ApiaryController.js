@@ -35,7 +35,9 @@ module.exports = {
       accessibility: {
         vehicle: req.param("vehicle"),
         cycle: req.param("cycle"),
-        foot: req.param("foot"),
+        foot: req.param("foot")
+      },
+      type: {
         natural: req.param("natural"),
         tree: req.param("tree"),
         breastHeight: req.param("height"),
