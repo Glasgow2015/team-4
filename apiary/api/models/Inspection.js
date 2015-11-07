@@ -6,6 +6,9 @@ module.exports = {
     givenHive: {
       type: "string"
     },
+    inspector: {
+      model: "User"
+    },
     date: {
       type: "date",
       defaultsTo: function() {

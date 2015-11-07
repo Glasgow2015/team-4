@@ -5,6 +5,7 @@ module.exports = {
       return {
         hive: hive.id,
         givenHive: hive.givenId,
+        inspector: req.user.id,
         date: new Date(req.param("date")),
         weather: req.param("weather"),
         state: req.param("state"),
