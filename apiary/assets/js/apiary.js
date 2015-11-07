@@ -38,4 +38,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
+        .state("main.hive", {
+          url: "/hive",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/hive.html',
+              controller: 'hiveController'
+            }
+          }
+        })
 }])
