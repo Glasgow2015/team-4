@@ -28,7 +28,11 @@ module.exports.policies = {
 
   '*': false,
   ApiaryController: {
-    create: ['sessionAuth']
+    create: ['sessionAuth'],
+    get: ['sessionAuth'],
+    getOne: ['sessionAuth'],
+    addBeekeeper: ['sessionAuth'],
+    removeBeekeeper: ['sessionAuth'],
   },
   HiveController: {
     create: ['sessionAuth'],
