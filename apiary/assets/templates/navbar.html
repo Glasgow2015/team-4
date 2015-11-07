@@ -25,7 +25,8 @@
         <li><a href="#">Reports</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Login</a></li>
+        <li><a ui-sref="main.login" ng-hide="currentUser">Login</a></li>
+        <li><a ui-sref="main.register" ng-hide="currentUser">Register</a></li>
       </ul>
     </div>
   </div>

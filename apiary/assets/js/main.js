@@ -4,8 +4,8 @@ app.controller("mainController", [function() {
 
 }])
 
-app.controller("masterController", [function() {
-
+app.controller("masterController", ["User", "$scope", function(User, $scope) {
+  $scope.currentUser = User.getCurrent();
 }])
 
 app.controller("apiaryController", ["$scope", "apiaryQuestions", function($scope, apiaryQuestions) {
@@ -51,7 +51,7 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", function($scope
   "Honey badger stand"
 ])
 
-app.controller("navbarController", ["$scope", function($scope) {
+app.controller("navbarController", ["$scope", "User", function($scope, User) {
 }])
 
 app.constant("hiveTypes", [
@@ -182,7 +182,7 @@ function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspect
       model: "hive_condition",
       array: conditions
     },{
-      label: "Proective clothing and tools condition",
+      label: "Protective clothing and tools condition",
       model: "tools_condition",
       array: conditions
     }
@@ -198,4 +198,51 @@ function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspect
       })
     })
   })
+}])
+
+app.controller("registerController", ["$scope", "$state", "$http", function($scope, $state, $http) {
+  $scope.user = {
+    username: "",
+    password: ""
+  }
+  $scope.register = function() {
+      var data = {};
+      $http.post("/api/auth/local/register/", data, {
+          headers: {
+              Authorization: "Basic " + btoa($scope.user.username + ":" + $scope.user.password),
+              email: $scope.email
+          }
+      }).success(function(res) {
+          $state.go("main");
+      });
+  }
+}])
+
+app.controller("loginController", ["$scope", "$state", "$http", "User", function($scope, $state, $http, User) {
+  $scope.user = {
+    username: "",
+    password: ""
+  }
+  $scope.login = function() {
+      $http.get("/api/auth/local/login/", {
+          headers: {
+              Authorization: "Basic " + btoa($scope.user.username + ":" + $scope.user.password)
+          }
+      }).success(function(res) {
+        User.setCurrent(user);
+        $state.go("main");
+      })
+  };
+}])
+
+app.factory("User", [function() {
+  var current;
+  return {
+    getCurrent: function() {
+      return current;
+    },
+    setCurrent: function(user) {
+      current = user;
+    }
+  }
 }])

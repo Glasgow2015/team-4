@@ -56,4 +56,22 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
+        .state("main.register", {
+          url: "/register",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/register.html',
+              controller: 'registerController'
+            }
+          }
+        })
+        .state("main.login", {
+          url: "/login",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/login.html',
+              controller: 'loginController'
+            }
+          }
+        })
 }])
