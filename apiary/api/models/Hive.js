@@ -6,6 +6,10 @@ module.exports = {
       type: "string"
     },
 
+    user: {
+      model: "User"
+    },
+
     // GPS
     lat: {
       type: 'number'
