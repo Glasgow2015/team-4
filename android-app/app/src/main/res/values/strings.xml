@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Apiary</string>
+    <string name="title_activity_hive">HiveActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_apiary">ApiaryActivity</string>
+    <string name="title_activity_new_inspection">NewInspectionActivity</string>
 </resources>
