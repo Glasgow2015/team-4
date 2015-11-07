@@ -31,7 +31,9 @@ module.exports.policies = {
     create: ['sessionAuth']
   },
   HiveController: {
-    create: ['sessionAuth']
+    create: ['sessionAuth'],
+    addSponsor: ['sessionAuth'],
+    removeSponsor: ['sessionAuth'],
   },
   InspectionController: {
     create: ['sessionAuth']
