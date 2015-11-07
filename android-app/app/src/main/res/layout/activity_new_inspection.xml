@@ -9,30 +9,17 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical" >
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hive_number" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/inspection_date" />
-    <Spinner
-        android:id="@+id/weather_conditions"
-        android:layout_height="wrap_content"
-        android:prompt="@string/weather_conditions"
-        android:layout_width="fill_parent"
-        android:entries="@array/weather_conditions"
-        android:spinnerMode="dialog">
-    </Spinner>
-    <Spinner
-        android:id="@+id/state_of_hive"
-        android:layout_height="wrap_content"
-        android:prompt="@string/state_of_hive"
-        android:layout_width="fill_parent"
-        android:entries="@array/state_of_hive"
-        android:spinnerMode="dialog">
-    </Spinner
+    <include layout="@layout/question_inspection_num"></include>
+    <include layout="@layout/question_inspection_date"></include>
+    <include layout="@layout/question_inspection_wather"></include>
+    <include layout="@layout/question_inspection_hivestate"></include>
+    <include layout="@layout/question_inspection_colonystr"></include>
+    <include layout="@layout/question_inspection_temper"></include>
+    <include layout="@layout/question_inspection_queen"></include>
+    <include layout="@layout/question_inspection_combs"></include>
+    <include layout="@layout/question_inspection_pests"></include>
+    <include layout="@layout/question_inspection_hivecond"></include>
+    <include layout="@layout/question_inspection_tools"></include>
     <Button
         android:layout_width="100dp"
         android:layout_height="wrap_content"

@@ -21,10 +21,40 @@
         <item>@string/dead_unkn</item>
     </string-array>
 
-    <string-array name="state_of_colony">
+    <string-array name="colonystr">
         <item>@string/strong</item>
         <item>@string/moderate</item>
         <item>@string/weak</item>
         <item>@string/critical</item>
+    </string-array>
+
+    <string-array name="temper">
+        <item>@string/calm</item>
+        <item>@string/nervious</item>
+        <item>@string/angry</item>
+    </string-array>
+
+    <string-array name="y_n">
+        <item>@string/y</item>
+        <item>@string/n</item>
+    </string-array>
+
+    <string-array name="hal">
+        <item>@string/high</item>
+        <item>@string/average</item>
+        <item>@string/low</item>
+    </string-array>
+
+    <string-array name="lmh">
+        <item>@string/light</item>
+        <item>@string/moderate</item>
+        <item>@string/heavy</item>
+    </string-array>
+
+    <string-array name="gfpd">
+        <item>@string/good</item>
+        <item>@string/fair</item>
+        <item>@string/poor</item>
+        <item>@string/damaged</item>
     </string-array>
 </resources>

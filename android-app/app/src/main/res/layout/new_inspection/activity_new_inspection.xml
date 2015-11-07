@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hive_number" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/inspection_date" />
+    <Spinner
+        android:id="@+id/weather_conditions"
+        android:layout_height="wrap_content"
+        android:prompt="@string/weather_conditions"
+        android:layout_width="fill_parent"
+        android:entries="@array/weather_conditions"
+        android:spinnerMode="dialog">
+    </Spinner>
+    <Spinner
+        android:id="@+id/state_of_hive"
+        android:layout_height="wrap_content"
+        android:prompt="@string/state_of_hive"
+        android:layout_width="fill_parent"
+        android:entries="@array/state_of_hive"
+        android:spinnerMode="dialog">
+    </Spinner
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/send" />
+</LinearLayout>
+</ScrollView>
