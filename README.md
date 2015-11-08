@@ -23,12 +23,11 @@ The system under development consists of;
  ##Scope of project
  The project will work offline and sync with the server database when a network connection is detected 
  
- ## Out of Scope
+ ## Out of Scope:
  Underlying mechanism of recieving message is out of scope that is message could be recieved through a message bus, direct TCP or UDP connection.
  
- 
- 
- 
-
+ ## System Design
+ Here describe the diagram that you have below so that it is not just a diagram witout explanation 
+ ![alt text](https://github.com/Glasgow2015/team-4/blob/master/Project%20Design%20team4.jpg "System Design")
  
  
