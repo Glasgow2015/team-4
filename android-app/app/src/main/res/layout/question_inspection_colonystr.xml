@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Spinner
-        android:id="@+id/colonystr"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:prompt="@string/colonystr"
-        android:layout_width="fill_parent"
-        android:entries="@array/colonystr"
-        android:spinnerMode="dialog">
-    </Spinner>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Strength of the colony - estimation of inspection"
+        android:id="@+id/textView12"
+        android:layout_marginBottom="10dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Strong"
+            android:id="@+id/radioButton26" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Moderate"
+            android:id="@+id/radioButton27" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weak"
+            android:id="@+id/radioButton28" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Critical"
+            android:id="@+id/radioButton29" />
+    </RadioGroup>
 
 </LinearLayout>

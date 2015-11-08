@@ -10,7 +10,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Hive number"
         android:id="@+id/textView2"
-        android:paddingBottom="10dp" />
+        android:layout_marginBottom="10dp" />
 
     <EditText
         android:layout_width="match_parent"

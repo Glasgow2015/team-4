@@ -4,18 +4,19 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Queen cells in brood combs?"
-        android:id="@+id/textView14"
+        android:text="Number of clean, airtight buckets available for harvest"
+        android:id="@+id/textView46"
         android:layout_marginBottom="10dp" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Yes"
-        android:id="@+id/checkBox4" />
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText5"
+        android:hint="0" />
 </LinearLayout>

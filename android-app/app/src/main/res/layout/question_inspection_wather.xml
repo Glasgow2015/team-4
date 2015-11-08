@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Spinner
-        android:id="@+id/weather_conditions"
-        android:layout_height="wrap_content"
-        android:prompt="@string/weather_conditions"
-        android:layout_width="fill_parent"
-        android:entries="@array/weather_conditions"
-        android:spinnerMode="dialog">
-    </Spinner>
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Weather conditions"
+        android:id="@+id/textView10"
+        android:layout_marginBottom="10dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sunny"
+            android:id="@+id/radioButton9" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Partly cloudly"
+            android:id="@+id/radioButton10" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cloudly"
+            android:id="@+id/radioButton11" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rain"
+            android:id="@+id/radioButton12" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Windy"
+            android:id="@+id/radioButton13" />
+    </RadioGroup>
 </LinearLayout>

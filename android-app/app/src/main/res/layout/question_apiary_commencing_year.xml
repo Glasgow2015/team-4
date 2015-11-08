@@ -4,18 +4,17 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Queen cells in brood combs?"
-        android:id="@+id/textView14"
+        android:text="Year of commencing apiary"
+        android:id="@+id/textView6"
         android:layout_marginBottom="10dp" />
 
-    <CheckBox
+    <DatePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Yes"
-        android:id="@+id/checkBox4" />
+        android:id="@+id/datePicker2"
+        style="@android:style/Widget.DatePicker" />
 </LinearLayout>

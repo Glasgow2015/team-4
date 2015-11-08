@@ -1,14 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Spinner
-        android:id="@+id/state_of_hive"
-        android:layout_height="wrap_content"
-        android:prompt="@string/state_of_hive"
-        android:layout_width="fill_parent"
-        android:entries="@array/state_of_hive"
-        android:spinnerMode="dialog">
-    </Spinner>
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="State of hive"
+        android:id="@+id/textView11"
+        android:layout_marginBottom="10dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not in use/not installed"
+            android:id="@+id/radioButton14" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not yet occupied"
+            android:id="@+id/radioButton15" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Occupied"
+            android:id="@+id/radioButton16" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Absconded"
+            android:id="@+id/radioButton17" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead, because of robbing"
+            android:id="@+id/radioButton18" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead, because of honey badger"
+            android:id="@+id/radioButton19" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead, because of mites"
+            android:id="@+id/radioButton20" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead, because of beetle"
+            android:id="@+id/radioButton21" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead, because of beetle"
+            android:id="@+id/radioButton22" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead, because of fire"
+            android:id="@+id/radioButton23" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead, because of flood"
+            android:id="@+id/radioButton24" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead, reason unknown"
+            android:id="@+id/radioButton25" />
+    </RadioGroup>
 </LinearLayout>

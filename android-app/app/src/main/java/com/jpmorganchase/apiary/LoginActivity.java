@@ -2,6 +2,10 @@ package com.jpmorganchase.apiary;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -9,12 +13,21 @@ import java.net.Authenticator;
 import java.net.HttpURLConnection;
 import java.net.PasswordAuthentication;
 import java.net.URL;
-import android.widget.Button;
-import android.view.*;
-/**
- * Created by reni on 07/11/15.
- */
-public class AuthActivity extends Activity {
+
+public class LoginActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Button clickButton = (Button) findViewById(R.id.btnLogin);
+        clickButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
 
     private class Logging extends AsyncTask<URL, Void, Long> {
 
@@ -32,11 +45,12 @@ public class AuthActivity extends Activity {
             try {
                 urlConnection = (HttpURLConnection) url[0].openConnection();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
                 if (!url[0].getHost().equals(urlConnection.getURL().getHost())) {
-                    // we were redirected! Kick the user out to the browser to sign on?
+
                 }
             } catch (Exception e) {
-                //TODO
+
             } finally {
             }
 
@@ -54,13 +68,4 @@ public class AuthActivity extends Activity {
 
         }
     }
-
-    /*Button clickButton = (Button) findViewById(R.id.clickButton);
-    clickButton.setOnClickListener( new OnClickListener() {
-        @Override
-        public void onClick (View v){
-            // TODO Auto-generated method stub
-        }
-    });*/
-
 }

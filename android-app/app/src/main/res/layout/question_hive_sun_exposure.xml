@@ -10,7 +10,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sun Exposure"
         android:id="@+id/textView3"
-        android:paddingBottom="10dp" />
+        android:layout_marginBottom="10dp" />
 
     <RadioGroup
         android:layout_width="wrap_content"
