@@ -6,26 +6,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.HttpAuthHandler;
 import android.widget.Button;
-import com.google.gson.Gson;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     Button btnCreateApiary;
     Button btnCreateHive;
     Button btnCreateInspection;
-    Gson gson = new Gson();
-    String json = "helloGson";
+    Button btnHarvest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,25 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCreateApiary = (Button) findViewById(R.id.btnCreateApiary);
         btnCreateHive = (Button) findViewById(R.id.btnCreateHive);
         btnCreateInspection = (Button) findViewById(R.id.btnCreateInspection);
+        btnHarvest = (Button) findViewById(R.id.btnHarvest);
 
         btnCreateApiary.setOnClickListener(this);
         btnCreateHive.setOnClickListener(this);
         btnCreateInspection.setOnClickListener(this);
-        String checker = gson.toJson(json);
-
-        try {
-            //write converted json data to a file named "file.json"
-            FileWriter writer = new FileWriter("C:\\Users\\RyanCook\\Desktop\\CodeForGood\\file");
-            writer.write(checker);
-            writer.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(checker);
+        btnHarvest.setOnClickListener(this);
     }
-
 
     @Override
     public void onClick(View v) {
@@ -61,13 +37,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.btnCreateApiary:
-                intent = new Intent(this, HiveActivity.class);
+                intent = new Intent(this, ApiaryActivity.class);
                 break;
             case R.id.btnCreateHive:
                 intent = new Intent(this, HiveActivity.class);
                 break;
             case R.id.btnCreateInspection:
-                //intent = new Intent(this, InspectionActivity.class);
+                intent = new Intent(this, InspectionActivity.class);
+                break;
+            case R.id.btnHarvest:
+                intent = new Intent(this, HarvestActivity.class);
                 break;
         }
 

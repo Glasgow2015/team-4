@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Spinner
-        android:id="@+id/hivecond"
-        android:layout_height="wrap_content"
-        android:prompt="@string/hivecond"
-        android:layout_width="fill_parent"
-        android:entries="@array/gfpd"
-        android:spinnerMode="dialog">
-    </Spinner>
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Hive condition"
+        android:id="@+id/textView23"
+        android:layout_marginBottom="10dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good"
+            android:id="@+id/radioButton45" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fair"
+            android:id="@+id/radioButton46" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poor"
+            android:id="@+id/radioButton47" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Damaged"
+            android:id="@+id/radioButton48" />
+    </RadioGroup>
 </LinearLayout>

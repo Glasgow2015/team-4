@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:text="Create Hive"
         android:id="@+id/btnCreateHive"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/btnCreateApiary"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -20,26 +21,23 @@
         android:layout_height="wrap_content"
         android:text="Create Inspection"
         android:id="@+id/btnCreateInspection"
+        android:layout_marginTop="24dp"
         android:layout_below="@+id/btnCreateHive"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Apiary"
         android:id="@+id/btnCreateApiary"
-        android:layout_above="@+id/btnCreateHive"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button4"
-        android:layout_marginTop="32dp"
+        android:text="Harvest"
+        android:id="@+id/btnHarvest"
         android:layout_below="@+id/btnCreateInspection"
-        android:layout_alignRight="@+id/btnCreateHive"
-        android:layout_alignEnd="@+id/btnCreateHive" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 </RelativeLayout>

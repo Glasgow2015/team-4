@@ -32,6 +32,12 @@
         </activity>
         <activity android:name=".InspectionActivity" >
         </activity>
+        <activity android:name=".ApiaryActivity" >
+        </activity>
+        <activity android:name=".HarvestActivity" >
+        </activity>
+        <activity android:name=".LoginActivity" >
+        </activity>
     </application>
 
 </manifest>
