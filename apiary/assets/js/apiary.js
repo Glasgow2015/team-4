@@ -73,8 +73,17 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
+        .state("main.apiary.hive_create", {
+          url: "/hive/create",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/hive_create.html',
+              controller: 'hiveCreateController'
+            }
+          }
+        })
         .state("main.apiary.hive", {
-          url: "/:id/hive",
+          url: "/hive/:hive",
           views: {
             'body@main': {
               templateUrl: '/templates/hive.html',

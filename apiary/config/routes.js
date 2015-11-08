@@ -51,7 +51,7 @@ module.exports.routes = {
   'post /api/hive/sponsor/add': 'HiveController.addSponsor',
   'post /api/hive/sponsor/remove': 'HiveController.removeSponsor',
   'get  /api/hive/:hive': 'HiveController.getOne',
-  'get  /api/hive/:apiary/apiary': 'HiveController.getByApiary',
+  'get  /api/hive/apiary/:apiary': 'HiveController.getByApiary',
 
   'post /api/inspection/create': 'InspectionController.create',
   'get  /api/inspection/get': 'InspectionController.getByHive',
