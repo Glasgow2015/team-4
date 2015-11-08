@@ -74,6 +74,7 @@
     <string name="pswd">Password</string>
 
     <string name="tools">Protective clothind and beekeeping tools condition</string>
+    <string name="title_activity_apiary_choice">ApiaryChoice</string>
 
 
 </resources>
