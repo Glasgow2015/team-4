@@ -70,6 +70,9 @@
     <string name="poor">Poor</string>
     <string name="damaged">Damaged</string>
 
+    <string name="name">Username</string>
+    <string name="pswd">Password</string>
+
     <string name="tools">Protective clothind and beekeeping tools condition</string>
 
 
