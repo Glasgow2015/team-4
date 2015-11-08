@@ -1,0 +1,35 @@
+<div class="col-md-12">
+  <div class="col-md-6">
+    <h2>Create Hive</h2>
+    <div class="form-group">
+      <label>Hive number</label>
+      <input type="number" class="form-control" placeholder="Hive Number" ng-model="hive.givenId">
+    </div>
+    <div class="form-group">
+      <label>Coordinates</label>
+      <input type="number" class="form-control" placeholder="Longitude" ng-model="hive.lon">
+      <input type="number" class="form-control" placeholder="Latitude" ng-model="hive.lat">
+    </div>
+    <div class="form-group">
+      <label>Date of installation</label>
+      <input type="number" class="form-control" placeholder="Date of installation" ng-model="hive.date">
+    </div>
+    <div class="form-group">
+      <label>Hive type:&nbsp;</label>
+      <button type="button" class="btn btn-default" ng-model="hive.type" placeholder="Choose..." bs-options="type.value as type.label for type in types" bs-select>
+        Action <span class="caret"></span>
+      </button>
+    </div>
+    <div class="form-group">
+      <label>Sun exposure:&nbsp;</label>
+      <button type="button" class="btn btn-default" ng-model="hive.exposure" placeholder="Choose..." bs-options="exposure.value as exposure.label for exposure in exposures" bs-select>
+        Action <span class="caret"></span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="col-md-12" style="margin-bottom:10px">
+  <div class="col-md-2">
+    <button class="btn btn-primary btn-block" ng-click="create()" type="button">Create</button>
+  </div>
+</div>
