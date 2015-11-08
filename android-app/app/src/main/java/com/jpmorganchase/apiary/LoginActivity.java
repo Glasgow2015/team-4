@@ -101,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
             return null;
         }
 
-
         protected void onPostExecute(Long result) {
 
         }

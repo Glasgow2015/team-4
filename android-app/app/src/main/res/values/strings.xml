@@ -152,6 +152,8 @@
 
     <string name="tools">Protective clothind and beekeeping tools condition</string>
     <string name="title_activity_apiary_choice">ApiaryChoice</string>
+    <string name="question_apiary_type">Type of apiary</string>
+    <string name="question_apiary_natural">Natural-nest apiaries</string>
 
 
 </resources>
