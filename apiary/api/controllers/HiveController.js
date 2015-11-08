@@ -29,23 +29,23 @@ module.exports = {
       return newHive;
     })
     .then(function(newHive) {
-      var file = req.file("file");
-      if (file) {
-        return new Promise(function(resolve, reject) {
-          file.upload(function(err, file) {
-            file = file[0];
-            var writeStream = Grid.grid.fs.streams.createWriteStream();
-            writeStream.on('close', function() {
-              console.log(arguments);
-              // TODO test this
-              resolve(newHive);
-            });
-            Utils.fs.createReadStream(file.fd).pipe(writeStream);
-          });
-        });
-      } else {
-        return newHive;
-      }
+      // var file = req.file("file");
+      // if (file) {
+      //   return new Promise(function(resolve, reject) {
+      //     file.upload(function(err, file) {
+      //       file = file[0];
+      //       var writeStream = Grid.grid.fs.streams.createWriteStream();
+      //       writeStream.on('close', function() {
+      //         console.log(arguments);
+      //         // TODO test this
+      //         resolve(newHive);
+      //       });
+      //       Utils.fs.createReadStream(file.fd).pipe(writeStream);
+      //     });
+      //   });
+      // } else {
+      return newHive;
+      // }
     })
     .then(Hive.create)
     .catch(function(err) {
@@ -58,7 +58,11 @@ module.exports = {
 
   addSponsor: function(req, res) {
     Hive.findOne({
-      id: req.param("hive"),
+      or: [{
+        id: req.param("hive")
+      }, {
+        givenId: req.param("hive")
+      }],
       user: req.user.id
     })
     .then(function(hive) {
@@ -74,7 +78,11 @@ module.exports = {
 
   removeSponsor: function(req, res) {
     Hive.findOne({
-      id: req.param("hive"),
+      or: [{
+        id: req.param("hive")
+      }, {
+        givenId: req.param("hive")
+      }],
       user: req.user.id
     })
     .then(function(hive) {
@@ -90,7 +98,11 @@ module.exports = {
 
   addKeeper: function(req, res) {
     Hive.findOne({
-      id: req.param("hive"),
+      or: [{
+        id: req.param("hive")
+      }, {
+        givenId: req.param("hive")
+      }],
       user: req.user.id
     })
     .then(function(hive) {
@@ -106,7 +118,11 @@ module.exports = {
 
   removeKeeper: function(req, res) {
     Hive.findOne({
-      id: req.param("hive"),
+      or: [{
+        id: req.param("hive")
+      }, {
+        givenId: req.param("hive")
+      }],
       user: req.user.id
     })
     .then(function(hive) {
@@ -146,7 +162,12 @@ module.exports = {
 
   getOne: function(req, res) {
     Hive.findOne({
-      id: req.param("hive"),
+      or: [{
+        id: req.param("hive")
+      }, {
+        givenId: req.param("hive")
+      }]
+    }).where({
       or: [{
         user: req.user.id
       }, {
