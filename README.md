@@ -18,7 +18,7 @@ In sum, it is about the location which is supported with a map
 ## Module 4: Creating an inspection
 When bees are inspected. Inspection could be affected by various weather conditions.
 
-## Module 5: Harvest and
+## Module 5: Harvest 
 When bees are harvested-month&year
 
 ## Module 6: Inspection report
@@ -32,7 +32,7 @@ The system under development consists of;
  - Navigation drawer: this can be slided from the left to the right.
  
  ##Scope of project
- The project will work offline and sync with the server database when a network connection is detected 
+ The project will work offline and sync with the server database when a network connect/dion is detected 
  
  ## Out of Scope:
  Underlying mechanism of recieving message is out of scope that is message could be recieved through a message bus, direct TCP or UDP connection.
@@ -42,4 +42,7 @@ The system under development consists of;
   
  ![alt text](https://github.com/Glasgow2015/team-4/blob/master/Project%20Design%20team4.jpg "System Design")
  
+ 
+## How the website functions
+ The website makes it very easy for people to share documents even if they are using what would otherwise be incompatible computers.
  
