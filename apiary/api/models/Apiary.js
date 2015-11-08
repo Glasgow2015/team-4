@@ -23,10 +23,10 @@ module.exports = {
 
     // GPS
     lat: {
-      type: 'number'
+      type: 'float'
     },
     log: {
-      type: 'number'
+      type: 'float'
     },
 
     startYear: {

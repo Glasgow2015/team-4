@@ -10,7 +10,6 @@ module.exports = {
         error: "incorrect gps data received"
       });
     }
-
     var newApiary = {
       name: req.param("name"),
 

@@ -3,15 +3,16 @@
     <h2>Create Hive</h2>
     <div class="form-group">
       <label>Apiary Name</label>
-      <input type="text" class="form-control" placeholder="Hive Number" ng-model="hive.number">
+      <input type="text" class="form-control" placeholder="Hive Number" ng-model="hive.givenId">
     </div>
     <div class="form-group">
-      <label>GPS</label>
-      <input type="text" class="form-control" placeholder="TODO" ng-model="hive.gps">
+      <label>Coordinates</label>
+      <input type="number" class="form-control" placeholder="Longitude" ng-model="hive.long">
+      <input type="number" class="form-control" placeholder="Latitude" ng-model="hive.lat">
     </div>
     <div class="form-group">
       <label>Date of installation</label>
-      <input type="text" class="form-control" placeholder="Date of installation" ng-model="apiary.date">
+      <input type="number" class="form-control" placeholder="Date of installation" ng-model="hive.date">
     </div>
     <div class="form-group">
       <label>Hive type:&nbsp;</label>
