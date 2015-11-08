@@ -1,4 +1,4 @@
-var ObjectID = require("mongodb");
+var ObjectID = require("mongodb").ObjectID;
 
 module.exports = {
   attributes: {

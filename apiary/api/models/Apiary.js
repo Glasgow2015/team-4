@@ -34,14 +34,62 @@ module.exports = {
     },
 
     // questions
-    environment: {
-      type: 'json'
+    //environment
+    water: {
+      type: 'string'
     },
-    accessibility: {
-      type: 'json'
+    vegetationMiombo: {
+      type: 'string'
     },
-    type: {
-      type: 'json'
+    vegetationForests: {
+      type: 'string'
+    },
+    vegetationGrass: {
+      type: 'string'
+    },
+    vegetationForestPlantation: {
+      type: 'string'
+    },
+    vegetationSisalPlantation: {
+      type: 'string'
+    },
+    vegetationOrchard: {
+      type: 'string'
+    },
+    vegetationMixed: {
+      type: 'string'
+    },
+    pesticides: {
+      type: 'string'
+    },
+
+    //accessibility
+
+    vehicle: {
+      type: 'string'
+    },
+    cycle: {
+      type: 'string'
+    },
+    foot: {
+      type: 'string'
+    },
+
+    //type
+    natural: {
+      type: 'string'
+    },
+    tree: {
+      type: 'string'
+    },
+    breastHeight: {
+      type: 'string'
+    },
+    beeHouse: {
+      type: 'string'
+    },
+    badger: {
+      type: 'string'
     }
   }
 };

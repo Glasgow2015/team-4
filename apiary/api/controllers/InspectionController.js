@@ -12,17 +12,13 @@ module.exports = {
         temper: req.param("temper"),
         queens: req.param("queens"),
 
-        combCondition: {
-          honey: req.param("honey"),
-          pollen: req.param("pollen")
-        },
+        honey: req.param("honey"),
+        pollen: req.param("pollen"),
 
-        diseases: {
-          beetles: req.param("beetles"),
-          mites: req.param("mites"),
-          ants: req.param("ants"),
-          chalk: req.param("chalk")
-        },
+        beetles: req.param("beetles"),
+        mites: req.param("mites"),
+        ants: req.param("ants"),
+        chalk: req.param("chalk"),
 
         hiveCondition: req.param("hiveCondition"),
         tools: req.param("tools")

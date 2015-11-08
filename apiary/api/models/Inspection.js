@@ -28,12 +28,26 @@ module.exports = {
       type: "string"
     },
 
-    combCondition: {
-      type: "json"
+    //Comb Condition
+    honey: {
+      type: "string"
+    },
+    pollen: {
+      type: "string"
     },
 
-    diseases: {
-      type: "json"
+    //diseases
+    beetles: {
+      type: "string"
+    },
+    mites: {
+      type: "string"
+    },
+    ants: {
+      type: "string"
+    },
+    chalk: {
+      type: "string"
     },
 
     hiveCondition: {
