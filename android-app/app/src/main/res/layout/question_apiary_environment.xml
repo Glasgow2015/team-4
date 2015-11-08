@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is water supply within 3km radius of apiary?"
+        android:text="@string/question_apiary_env_supply_water"
         android:id="@+id/textView25"
         android:layout_marginBottom="10dp" />
 
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is vegetation within 3km radius of apiary miombo woodlands?"
+        android:text="@string/question_apiary_env_vegetation1"
         android:id="@+id/textView26"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is vegetation within 3km radius of apiary closed forest?"
+        android:text="@string/question_apiary_env_vegetation2"
         android:id="@+id/textView27"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is vegetation within 3km radius of apiary grassland?"
+        android:text="@string/question_apiary_env_vegetation3"
         android:id="@+id/textView28"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is vegetation within 3km radius of apiary forest plantation?"
+        android:text="@string/question_apiary_env_vegetation4"
         android:id="@+id/textView29"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is vegetation within 3km radius of apiary sisal plantation?"
+        android:text="@string/question_apiary_env_vegetation5"
         android:id="@+id/textView30"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
@@ -97,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is vegetation within 3km radius of apiary orchard?"
+        android:text="@string/question_apiary_env_vegetation6"
         android:id="@+id/textView31"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is vegetation within 3km radius of apiary mixed crops?"
+        android:text="@string/question_apiary_env_vegetation7"
         android:id="@+id/textView32"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -127,7 +127,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Do farmers within a radius of 3km of the apiary use pesticides?"
+        android:text="@string/question_apiary_env_pesticides"
         android:id="@+id/textView33"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />

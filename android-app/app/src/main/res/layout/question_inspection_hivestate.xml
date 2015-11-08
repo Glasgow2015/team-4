@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="State of hive"
+        android:text="@string/question_inspection_hive_state"
         android:id="@+id/textView11"
         android:layout_marginBottom="10dp" />
 
@@ -20,73 +20,73 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Not in use/not installed"
+            android:text="@string/answer_inspection_hive_notinstalled"
             android:id="@+id/radioButton14" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Not yet occupied"
+            android:text="@string/answer_inspection_hive_notoccu"
             android:id="@+id/radioButton15" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Occupied"
+            android:text="@string/answer_inspection_hive_occu"
             android:id="@+id/radioButton16" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Absconded"
+            android:text="@string/answer_inspection_hive_absconded"
             android:id="@+id/radioButton17" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dead, because of robbing"
+            android:text="@string/answer_inspection_hive_dead1"
             android:id="@+id/radioButton18" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dead, because of honey badger"
+            android:text="@string/answer_inspection_hive_dead2"
             android:id="@+id/radioButton19" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dead, because of mites"
+            android:text="@string/answer_inspection_hive_dead3"
             android:id="@+id/radioButton20" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dead, because of beetle"
+            android:text="@string/answer_inspection_hive_dead4"
             android:id="@+id/radioButton21" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dead, because of beetle"
+            android:text="@string/answer_inspection_hive_dead5"
             android:id="@+id/radioButton22" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dead, because of fire"
+            android:text="@string/answer_inspection_hive_dead6"
             android:id="@+id/radioButton23" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dead, because of flood"
+            android:text="@string/answer_inspection_hive_dead7"
             android:id="@+id/radioButton24" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dead, reason unknown"
+            android:text="@string/answer_inspection_hive_dead8"
             android:id="@+id/radioButton25" />
     </RadioGroup>
 </LinearLayout>

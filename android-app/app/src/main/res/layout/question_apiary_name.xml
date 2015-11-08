@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Apiary Name"
+        android:text="@string/question_apiary_name"
         android:id="@+id/textView5"
         android:layout_marginBottom="10dp" />
 

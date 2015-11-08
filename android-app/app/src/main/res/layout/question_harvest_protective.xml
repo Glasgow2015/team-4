@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Protective clothing available for beekeeper?"
+        android:text="@string/question_harvest_proc_cloth"
         android:id="@+id/textView43"
         android:layout_marginBottom="10dp" />
 
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Protective clothing available for all assistants?"
+        android:text="@string/question_harvest_proc_assistant"
         android:id="@+id/textView44"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Smoker available?"
+        android:text="@string/question_harvest_proc_smoker"
         android:id="@+id/textView45"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -45,6 +45,6 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Yes"
+        android:text="@string/answer_yes"
         android:id="@+id/checkBox34" />
 </LinearLayout>

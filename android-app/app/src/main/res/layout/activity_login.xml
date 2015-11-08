@@ -17,14 +17,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/name"
-        android:hint="@string/name" />
+        android:hint="@string/hint_username" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/pswd"
-        android:hint="@string/pswd" />
+        android:hint="@string/hind_passwd" />
 
     <Button
         android:layout_width="wrap_content"
@@ -42,14 +42,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/regName"
-            android:hint="@string/name" />
+            android:hint="@string/hint_username" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/regPswd"
-            android:hint="@string/pswd" />
+            android:hint="@string/hind_passwd" />
 
         <Button
             android:layout_width="wrap_content"
