@@ -1,11 +1,11 @@
 module.exports = {
   create: function(req, res) {
     var lat = parseFloat(req.param("lat"));
-    var log = parseFloat(req.param("log"));
+    var lon = parseFloat(req.param("lon"));
 
     var year = parseInt(req.param("year"));
 
-    if (isNaN(lat) || isNaN(log) || isNaN(year)) {
+    if (isNaN(lat) || isNaN(lon) || isNaN(year)) {
       return res.ok({
         error: "incorrect gps data received"
       });
@@ -20,7 +20,7 @@ module.exports = {
 
       // GPS
       lat: lat,
-      log: log,
+      lon: lon,
 
       startYear: year,
 
