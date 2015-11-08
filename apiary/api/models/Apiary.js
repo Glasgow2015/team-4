@@ -38,25 +38,25 @@ module.exports = {
     water: {
       type: 'string'
     },
-    vegetationMiombo: {
+    miombo: {
       type: 'string'
     },
-    vegetationForests: {
+    forests: {
       type: 'string'
     },
-    vegetationGrass: {
+    grass: {
       type: 'string'
     },
-    vegetationForestPlantation: {
+    forestPlantation: {
       type: 'string'
     },
-    vegetationSisalPlantation: {
+    sisalPlantation: {
       type: 'string'
     },
-    vegetationOrchard: {
+    orchard: {
       type: 'string'
     },
-    vegetationMixed: {
+    mixed: {
       type: 'string'
     },
     pesticides: {
@@ -82,7 +82,7 @@ module.exports = {
     tree: {
       type: 'string'
     },
-    breastHeight: {
+    height: {
       type: 'string'
     },
     beeHouse: {
