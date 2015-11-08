@@ -62,7 +62,11 @@ module.exports = {
 
   get: function(req, res) {
     Apiary.find({
-      beekeepers: req.user.id
+      or: [{
+        beekeepers: req.user.id
+      }, {
+        user: req.user.id
+      }]
     }).then(_.identity)
     .catch(function(err) {
       sails.log.error("get", err);
