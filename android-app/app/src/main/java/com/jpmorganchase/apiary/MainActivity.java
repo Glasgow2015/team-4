@@ -8,8 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.HttpAuthHandler;
 import android.widget.Button;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnCreateApiary;
     Button btnCreateHive;
     Button btnCreateInspection;
-    Button syncButton;
+    Gson gson = new Gson();
+    String json = "helloGson";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,32 +39,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCreateApiary.setOnClickListener(this);
         btnCreateHive.setOnClickListener(this);
         btnCreateInspection.setOnClickListener(this);
-    }
+        String checker = gson.toJson(json);
 
-    public void syncButtonPressed() {
         try {
-
-            URL url = new URL("http://localhost:1337/");
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            OutputStreamWriter writer = new OutputStreamWriter(
-                    connection.getOutputStream());
-
-            //writer.write("message=" + message);
+            //write converted json data to a file named "file.json"
+            FileWriter writer = new FileWriter("C:\\Users\\RyanCook\\Desktop\\CodeForGood\\file");
+            writer.write(checker);
             writer.close();
 
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-            } else {
-
-            }
-        } catch (MalformedURLException e) {
-            // ...
         } catch (IOException e) {
-            // ...
-
+            e.printStackTrace();
         }
+
+        System.out.println(checker);
     }
 
 
@@ -79,9 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnCreateInspection:
                 //intent = new Intent(this, InspectionActivity.class);
-                break;
-            case R.id.button4:
-                syncButtonPressed();
                 break;
         }
 
