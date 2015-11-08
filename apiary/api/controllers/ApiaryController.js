@@ -24,29 +24,25 @@ module.exports = {
       startYear: year,
 
       // questions
-      environment: {
-        water: req.param("water"),
-        vegetationMiombo: req.param("miombo"),
-        vegetationForests: req.param("forests"),
-        vegetationGrass: req.param("grass"),
-        vegetationForestPlantation: req.param("forestPlantation"),
-        vegetationSisalPlantation: req.param("sisalPlantation"),
-        vegetationOrchard: req.param("orchard"),
-        vegetationMixed: req.param("mixed"),
-        pesticides: req.param("pesticides")
-      },
-      accessibility: {
-        vehicle: req.param("vehicle"),
-        cycle: req.param("cycle"),
-        foot: req.param("foot")
-      },
-      type: {
-        natural: req.param("natural"),
-        tree: req.param("tree"),
-        breastHeight: req.param("height"),
-        beeHouse: req.param("beeHouse"),
-        badger: req.param("badger")
-      }
+      water: req.param("water"),
+      vegetationMiombo: req.param("miombo"),
+      vegetationForests: req.param("forests"),
+      vegetationGrass: req.param("grass"),
+      vegetationForestPlantation: req.param("forestPlantation"),
+      vegetationSisalPlantation: req.param("sisalPlantation"),
+      vegetationOrchard: req.param("orchard"),
+      vegetationMixed: req.param("mixed"),
+      pesticides: req.param("pesticides"),
+
+      vehicle: req.param("vehicle"),
+      cycle: req.param("cycle"),
+      foot: req.param("foot"),
+
+      natural: req.param("natural"),
+      tree: req.param("tree"),
+      breastHeight: req.param("height"),
+      beeHouse: req.param("beeHouse"),
+      badger: req.param("badger")
     };
 
     Apiary.create(newApiary)
