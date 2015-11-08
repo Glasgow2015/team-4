@@ -22,7 +22,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       }
   });
 
-    console.log("YEY");
 
     $stateProvider
         .state("main", {
@@ -51,13 +50,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
               controller: 'navbarController'
             },
             'body@main': {
-              templateUrl: '/templates/apiaries.html',
-              controller: "apiariesController"
+              templateUrl: '/templates/home.html'
+            }
+          }
+        })
+        .state("main.apiary_create", {
+          url: "apiary/create",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/apiary_create.html',
+              controller: 'apiaryCreateController'
             }
           }
         })
         .state("main.apiary", {
-          url: "apiary",
+          url: "apiary/:id",
           views: {
             'body@main': {
               templateUrl: '/templates/apiary.html',
@@ -65,8 +72,17 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
+        .state("main.apiary.hive_create", {
+          url: "/hive/create",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/hive_create.html',
+              controller: 'hiveCreateController'
+            }
+          }
+        })
         .state("main.apiary.hive", {
-          url: "/:id/hive",
+          url: "/hive/:hive",
           views: {
             'body@main': {
               templateUrl: '/templates/hive.html',
@@ -74,12 +90,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
-        .state("main.inspection", {
-          url: "inspection",
+        .state("main.apiary.hive.inspection_create", {
+          url: "/inspection/create",
           views: {
             'body@main': {
-              templateUrl: '/templates/inspection.html',
-              controller: 'inspectionController'
+              templateUrl: '/templates/inspection_create.html',
+              controller: 'inspectionCreateController'
+            }
+          }
+        })
+        .state("main.apiary.hive.harvest_create", {
+          url: "/harvest/create",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/harvest_create.html',
+              controller: 'harvestCreateController'
             }
           }
         })

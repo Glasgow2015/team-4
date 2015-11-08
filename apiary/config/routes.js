@@ -43,7 +43,7 @@ module.exports.routes = {
 
   'post /api/apiary/create': 'ApiaryController.create',
   'get /api/apiary': 'ApiaryController.get',
-  'get /api/apiary/:apiary/one': 'ApiaryController.getOne',
+  'get /api/apiary/:apiary': 'ApiaryController.getOne',
   'post /api/apiary/beekeeper/add': 'ApiaryController.addBeekeeper',
   'post /api/apiary/beekeeper/remove': 'ApiaryController.removeBeekeeper',
 
@@ -51,13 +51,13 @@ module.exports.routes = {
   'post /api/hive/sponsor/add': 'HiveController.addSponsor',
   'post /api/hive/sponsor/remove': 'HiveController.removeSponsor',
   'get  /api/hive/:hive': 'HiveController.getOne',
-  'get  /api/hive/:apiary/apiary': 'HiveController.getByApiary',
+  'get  /api/hive/apiary/:apiary': 'HiveController.getByApiary',
 
   'post /api/inspection/create': 'InspectionController.create',
-  'get  /api/inspection/get': 'InspectionController.getByHive',
+  'get  /api/inspection/hive/:hive': 'InspectionController.getByHive',
 
   'post /api/harvest/create': 'HarvestController.create',
-  'get  /api/harvest/get': 'HarvestController.getByHive'
+  'get  /api/harvest/hive/:hive': 'HarvestController.getByHive'
 
   /***************************************************************************
   *                                                                          *

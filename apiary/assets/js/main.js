@@ -1,6 +1,6 @@
 var app = angular.module("mainModule", []);
 
-app.controller("mainController", ["currentUser", "$scope", function(currentUser, $scope) {
+app.controller("mainController", ["currentUser", "$scope", "apiaryQuestions", "$http", "months", "$state", "$rootScope", function(currentUser, $scope, apiaryQuestions, $http, months, $state, $rootScope) {
   $scope.currentUser = currentUser;
 
   $scope.readableTruthy = function(bool) {
@@ -9,6 +9,58 @@ app.controller("mainController", ["currentUser", "$scope", function(currentUser,
     } else {
       return "No"
     }
+  }
+
+  $scope.readableMonths = function(ms) {
+    if(!ms) return;
+    var string = "";
+    ms.forEach(function(m, index) {
+      string += months[m-1]
+      if(index != ms.length-1) {
+        string +=", "
+      }
+    })
+    return string;
+  }
+
+  $scope.apiaries = [];
+  $scope.selected = -1;
+  var getApiaries = function () {
+    $http.get("/api/apiary").success(function(res) {
+      $scope.apiaries = res;
+      $scope.matchQuestions($scope.apiaries);
+    })
+  }
+
+  $scope.isSelected = function(id){
+    return $state.params.id == id;
+  }
+  getApiaries();
+
+  $scope.matchQuestions = function(apiaries) {
+    apiaries.forEach(function(a) {
+      a.questions = [];
+      apiaryQuestions.forEach(function(q) {
+        if(a[q.model]) {
+          a.questions.push({
+            string: q.string,
+            value: a[q.model]
+          })
+        }
+      })
+    })
+  }
+
+  $rootScope.$on("pullApiaries", function() {
+    getApiaries();
+  })
+
+  $scope.isApiary = function() {
+    return $state.current.name == "main.apiary" || $state.current.name.indexOf("main.apiary.") > -1
+  }
+
+  $scope.isHive = function() {
+    return $state.current.name == "main.apiary.hive" || $state.current.name.indexOf("main.apiary.hive.") > -1
   }
 }])
 
@@ -29,7 +81,26 @@ app.constant("months", [
   "December"
 ])
 
-app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "months", function($scope, apiaryQuestions, $http, months) {
+app.controller("apiaryController", ["$scope", "$http", "$stateParams", function($scope, $http, $stateParams) {
+  $scope.apiary = {};
+  $scope.hives = [];
+  var getApiary = function() {
+    $http.get("/api/apiary/"+$stateParams.id).success(function(data) {
+      $scope.apiary = data;
+      $scope.matchQuestions([$scope.apiary]);
+      console.log($scope.apiary);
+    })
+  }
+  $scope.getHives = function() {
+    $http.get("/api/hive/apiary/"+$stateParams.id).success(function(hives) {
+      $scope.hives = hives;
+    })
+  }
+  getApiary();
+  $scope.getHives();
+}])
+
+app.controller("apiaryCreateController", ["$scope", "apiaryQuestions", "$http", "months", "$state", "$rootScope", function($scope, apiaryQuestions, $http, months, $state, $rootScope) {
   $scope.apiary = {}
   $scope.questions = []
   $scope.months = []
@@ -51,10 +122,10 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "month
       $scope.apiary[q.model] = q.value
     })
     $http.post("/api/apiary/create", $scope.apiary).success(function (res) {
-
+      $state.go("main.apiary", {id: res.id});
+      $rootScope.$emit("pullApiaries");
     })
   }
-
 }])
 
 .constant('apiaryQuestions', [
@@ -63,25 +134,25 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "month
     model: "water"
   },{
     string: "Is vegetation within 3km radius of apiary miombo woodlands",
-    model: "vegetationMiombo"
+    model: "miombo"
   },{
     string: "Is vegetation within 3km radius of apiary closed forests",
-    model: "vegetationForests"
+    model: "forests"
   },{
     string: "Is vegetation within 3km radius of apiary grassland",
-    model: "vegetationGrass"
+    model: "grass"
   },{
     string: "Is vegetation within 3km radius of apiary forest plantation",
-    model: "vegetationForestPlantation"
+    model: "forestPlantation"
   },{
     string: "Is vegetation within 3km radius of apiary sisal plantation",
-    model: "vegetationSisalPlantation"
+    model: "sisalPlantation"
   }, {
     string: "Is vegetation within 3km radius of apiary orchard",
-    model: "vegetationOrchard"
+    model: "orchard"
   }, {
     string: "Is vegetation within 3km radius of apiary mixed crops",
-    model: "vegetationMixed"
+    model: "mixed"
   }, {
     string: "Do farmers within a radius of 3km of the apiary use pesticides",
     model: "pesticides"
@@ -112,7 +183,7 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "month
   }
 ])
 
-app.controller("navbarController", ["$scope", "$http", "$state", function($scope, $http, $state) {
+app.controller("navbarController", ["$scope", "$http", "$state", "apiaryQuestions", function($scope, $http, $state, apiaryQuestions) {
   $scope.logout = function() {
     $http.get("/logout").success(function() {
       $state.go("login");
@@ -134,12 +205,31 @@ app.constant("hiveExposure", [
   "Sunny"
 ])
 
-app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", "$http", "$stateParams", function($scope, hiveTypes, hiveExposure, $http, $stateParams) {
+app.controller("hiveController", ["$scope", "$http", "$stateParams", function($scope, $http, $stateParams) {
+  $scope.hive = {}
+  $scope.getHive = function() {
+    $http.get("/api/hive/"+$stateParams.hive).success(function(res) {
+      $scope.hive = res;
+    })
+  }
+  $scope.getHive();
+
+  $scope.getInspections = function() {
+    $http.get("/api/inspection/hive/"+$stateParams.hive).success(function(res) {
+      $scope.inspections = res;
+    })
+  }
+  $scope.getInspections();
+}])
+
+app.controller("hiveCreateController", ["$scope", "hiveTypes", "hiveExposure", "$http", "$stateParams", "$state", function($scope, hiveTypes, hiveExposure, $http, $stateParams, $state) {
   $scope.hive = {
     apiary: $stateParams.id
   }
   $scope.types = []
   $scope.exposures = []
+  $scope.hiveTypes = hiveTypes;
+  $scope.hiveExposure = hiveExposure
   hiveTypes.forEach(function(type, index) {
     $scope.types.push({
       value: index,
@@ -154,7 +244,7 @@ app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", "$http"
   })
   $scope.create = function() {
     $http.post("/api/hive/create", $scope.hive).success(function (res) {
-      console.log(res);
+      $state.go("main.apiary.hive", {hive: res.id})
     })
   }
 }])
@@ -214,9 +304,28 @@ app.constant("conditions", [
   "Damaged"
 ])
 
-app.controller("inspectionController", ["$scope", "inspectionWeather", "inspectionState", "inspectionStrenght", "inspectionTemper", "levels", "weights", "conditions",
-function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspectionTemper, levels, weights, conditions) {
+app.controller("inspectionController", ["$scope", "$http", "$stateParams", function($scope, $http, $stateParams) {
   $scope.inspection = {}
+  $scope.getInspection = function() {
+    $http.get("/api/hive/"+$stateParams.hive).success(function(res) {
+      $scope.hive = res;
+    })
+  }
+  $scope.getHive();
+
+  $scope.getInspections = function() {
+    $http.get("/api/inspection/hive/"+$stateParams.hive).success(function(res) {
+      $scope.inspections = res;
+    })
+  }
+  $scope.getInspections();
+}])
+
+app.controller("inspectionCreateController", ["$scope", "inspectionWeather", "inspectionState", "inspectionStrenght", "inspectionTemper", "levels", "weights", "conditions", "$http", "$stateParams",
+function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspectionTemper, levels, weights, conditions, $http, $stateParams) {
+  $scope.inspection = {
+    hive: $stateParams.hive
+  }
   $scope.things = [
     {
       label: "Weather conditions",
@@ -271,6 +380,12 @@ function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspect
       })
     })
   })
+
+  $scope.create = function() {
+    $http.post("/api/inspection/create", $scope.inspection).success(function(res) {
+      console.log(res);
+    })
+  }
 }])
 
 app.controller("registerController", ["$scope", "$state", "$http", function($scope, $state, $http) {

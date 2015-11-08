@@ -38,6 +38,7 @@ The system under development consists of;
  Underlying mechanism of recieving message is out of scope that is message could be recieved through a message bus, direct TCP or UDP connection.
  
  ## System Design
+<<<<<<< HEAD
  Basically this is how the system would be designed. You need a login, each account is associated with Apiary, each apiary have any number of hives and then on each hives you either have harvested or inspected.
   
  ![alt text](https://github.com/Glasgow2015/team-4/blob/master/Project%20Design%20team4.jpg "System Design")
@@ -46,3 +47,10 @@ The system under development consists of;
 ## How the website functions
  The website makes it very easy for people to share documents even if they are using what would otherwise be incompatible computers.
  
+=======
+
+ #### Activity Diagram
+ ![alt text](https://github.com/Glasgow2015/team-4/blob/master/Project%20Design%20team4.jpg "System Design")
+ 
+ 
+>>>>>>> c782d06068115b4160479cca321806a5d54c5dba

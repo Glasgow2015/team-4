@@ -1,16 +1,18 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h2>Login</h2>
-    <div class="form-group">
-      <label>Username</label>
-      <input type="text" class="form-control" placeholder="Username" ng-model="user.username">
+<div class="col-md-12">
+  <form ng-submit="login()">
+    <div class="col-md-6">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" placeholder="Username" ng-model="user.username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+      </div>
+      <div class="form-group">
+        <md-button class="md-primary md-raised" type="submit">Login</md-button>
+      </div>
     </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary" ng-click="login()">Login</button>
-    </div>
-  </div>
+  </form>
 </div>

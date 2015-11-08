@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_harvesting_months"
-        android:id="@+id/textView7"
+        android:id="@+id/txtHarvestMonths"
         android:paddingBottom="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -25,26 +25,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_january"
-                android:id="@+id/checkBox" />
+                android:id="@+id/ckbJan" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_april"
-                android:id="@+id/checkBox2" />
+                android:id="@+id/ckbApr" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_july"
-                android:id="@+id/checkBox3"
+                android:id="@+id/ckbJul"
                 android:layout_column="2" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_octomber"
-                android:id="@+id/checkBox7"
+                android:id="@+id/ckbOct"
                 android:layout_column="3" />
         </TableRow>
 
@@ -56,28 +56,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_february"
-                android:id="@+id/checkBox8"
+                android:id="@+id/ckbFeb"
                 android:layout_column="0" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_may"
-                android:id="@+id/checkBox9"
+                android:id="@+id/ckbMay"
                 android:layout_column="1" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_august"
-                android:id="@+id/checkBox10"
+                android:id="@+id/ckbAug"
                 android:layout_column="2" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_november"
-                android:id="@+id/checkBox11"
+                android:id="@+id/ckbNov"
                 android:layout_column="3" />
         </TableRow>
 
@@ -89,28 +89,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_march"
-                android:id="@+id/checkBox12"
+                android:id="@+id/ckbMar"
                 android:layout_column="0" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_june"
-                android:id="@+id/checkBox13"
+                android:id="@+id/ckbJun"
                 android:layout_column="1" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_september"
-                android:id="@+id/checkBox14"
+                android:id="@+id/ckbSep"
                 android:layout_column="2" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/answer_apiary_month_december"
-                android:id="@+id/checkBox15"
+                android:id="@+id/ckbDec"
                 android:layout_column="3" />
         </TableRow>
 

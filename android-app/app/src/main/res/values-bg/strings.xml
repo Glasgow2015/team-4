@@ -1,3 +1,159 @@
 <resources>
     <string name="app_name">Пчелник</string>
+    <string name="title_activity_main">Табло</string>
+    <string name="title_activity_hive">Кошер</string>
+
+    <!--Apiary Questions & Answers-->
+    <string name="question_apiary_name">Име на пчелника</string>
+    <string name="question_apiary_commencing_year">Година на построяване на пчелника</string>
+    <string name="question_apiary_harvesting_months">Прибиране на Реколта</string>
+    <string name="answer_apiary_month_january">Януари</string>
+    <string name="answer_apiary_month_february">Февруари</string>
+    <string name="answer_apiary_month_march">Март</string>
+    <string name="answer_apiary_month_april">Април</string>
+    <string name="answer_apiary_month_may">Май</string>
+    <string name="answer_apiary_month_june">Юни</string>
+    <string name="answer_apiary_month_july">Юли</string>
+    <string name="answer_apiary_month_august">Август</string>
+    <string name="answer_apiary_month_september">Септември</string>
+    <string name="answer_apiary_month_octomber">Октомври</string>
+    <string name="answer_apiary_month_november">Ноември</string>
+    <string name="answer_apiary_month_december">Декември</string>
+    <string name="question_apiary_env_supply_water">Има ли източник на вода във радиус 3km?</string>
+    <string name="question_apiary_env_vegetation1">Има ли растителност в радиус от 3km: миомбови гори?</string>
+    <string name="question_apiary_env_vegetation2">Има ли растителност в радиус от 3km: затворени гори?</string>
+    <string name="question_apiary_env_vegetation3">Има ли растителност в радиус от 3km: треввиста?</string>
+    <string name="question_apiary_env_vegetation4">Има ли растителност в радиус от 3km: дървесни засъждения?</string>
+    <string name="question_apiary_env_vegetation5">Има ли растителност в радиус от 3km: сисалови засъждения?</string>
+    <string name="question_apiary_env_vegetation6">Има ли растителност в радиус от 3km: овощи?</string>
+    <string name="question_apiary_env_vegetation7">Има ли растителност в радиус от 3km: смесени култури?</string>
+    <string name="question_apiary_env_pesticides">Има ли фермери използващи пестициди в радиус от 3km?</string>
+    <string name="question_apiary_acs_vehicle">Достъпен ли е с автомобил?</string>
+    <string name="question_apiary_acs_bicycle">Достъпен ли е с колело/мотоциклет?</string>
+    <string name="question_apiary_acs_foot">Достъпен ли е пеша?</string>
+    <string name="question_apiary_acs_tree">Дървесни пчелници?</string>
+    <string name="question_apiary_acs_breast">Breast height (or stand) apiaries?</string>
+    <string name="question_apiary_acs_house">Bee house apiaries?</string>
+    <string name="question_apiary_acs_honey">Honey badger stand?</string>
+
+    <!--Harvest Questions & Answers-->
+    <string name="question_harvest_buckets">Number of clean, airtight buckets available for harvest</string>
+    <string name="question_harvest_date">Дата</string>
+    <string name="question_harvest_proc_cloth">Protective clothing available for beekeeper?</string>
+    <string name="question_harvest_proc_assistant">Protective clothing available for all assistants?</string>
+    <string name="question_harvest_proc_smoker">Smoker available?</string>
+    <string name="answer_yes">Да</string>
+    <string name="question_harvest_quantity">Количество</string>
+
+    <!--Hive Questions & Answers-->
+    <string name="question_hive_install">Дата на инсталацията</string>
+    <string name="question_hive_number">Номер на кошера</string>
+    <string name="question_hive_sun">Sun Exposure</string>
+    <string name="answer_hive_sun_shady">Shady</string>
+    <string name="answer_hive_sun_shade">Partial shade</string>
+    <string name="answer_hive_sun_sunny">Sunny</string>
+    <string name="question_hive_type">Hive Type</string>
+    <string name="answer_hive_traditional">Traditional hive</string>
+    <string name="answer_hive_topbar">Top bar hive</string>
+    <string name="answer_hive_queen">Top bar hive with queen excluder</string>
+    <string name="answer_hive_longstrow">Langstroth hive</string>
+    <string name="answer_hive_other">Други</string>
+
+    <!--Inspection Questions & Answers-->
+    <string name="question_inspection_strength">Strength of the colony - estimation of inspection</string>
+    <string name="answer_inspection_strong">Strong</string>
+    <string name="answer_inspection_moderate">Moderate</string>
+    <string name="answer_inspection_weak">Weak</string>
+    <string name="answer_inspection_critical">Critical</string>
+    <string name="answer_inspection_comb_cond">Condition of combs</string>
+    <string name="answer_inspection_honey_stores">Honey Stores</string>
+    <string name="answer_inspection_high">High</string>
+    <string name="answer_inspection_average">Average</string>
+    <string name="answer_inspection_low">Low</string>
+    <string name="question_inspection_pollen_stores">Pollen Stores</string>
+    <string name="question_inspection_date">Inspection Date</string>
+    <string name="question_inspection_diseases">Diseases and Pets</string>
+    <string name="question_inspection_hive_beetles">Small Hive Beetle</string>
+    <string name="answer_inspection_light">Light</string>
+    <string name="answer_inspection_heavy">Heavy</string>
+    <string name="question_inspection_varrao_mites">Varrao Mites</string>
+    <string name="question_inspection_ants">Safari Ants</string>
+    <string name="question_inspection_chalk_brood">Chalk Brood</string>
+    <string name="question_inspection_hive_cond">Hive condition</string>
+    <string name="answer_inspection_good">Good</string>
+    <string name="answer_inspection_fair">Fair</string>
+    <string name="answer_inspection_poor">Poor</string>
+    <string name="answer_inspection_damaged">Damaged</string>
+    <string name="question_inspection_hive_state">State of hive</string>
+    <string name="answer_inspection_hive_notinstalled">Not in use/not installed</string>
+    <string name="answer_inspection_hive_notoccu">Not yet occupied</string>
+    <string name="answer_inspection_hive_occu">Occupied</string>
+    <string name="answer_inspection_hive_absconded">Absconded</string>
+    <string name="answer_inspection_hive_dead1">Dead, because of robbing</string>
+    <string name="answer_inspection_hive_dead2">Dead, because of honey badger</string>
+    <string name="answer_inspection_hive_dead3">Dead, because of mites</string>
+    <string name="answer_inspection_hive_dead4">Dead, because of beetle</string>
+    <string name="answer_inspection_hive_dead5">Dead, because of beetle</string>
+    <string name="answer_inspection_hive_dead6">Dead, because of fire</string>
+    <string name="answer_inspection_hive_dead7">Dead, because of flood</string>
+    <string name="answer_inspection_hive_dead8">Dead, reason unknown</string>
+    <string name="question_inspection_hive_num">Hive Number</string>
+    <string name="question_inspection_queen_cells">Queen cells in brood combs?</string>
+    <string name="question_inspection_temp_hive">Temper of the hive</string>
+    <string name="answer_inspection_temp_calm">Calm</string>
+    <string name="answer_inspection_temp_nervous">Nervous</string>
+    <string name="answer_inspection_temp_angry">Angry</string>
+    <string name="question_inspection_tools"><![CDATA[Protective clothing & beekeeping tools condition]]></string>
+    <string name="question_inspection_weather_cond">Weather conditions</string>
+    <string name="answer_inspection_weather_sunny">Sunny</string>
+    <string name="answer_inspection_weather_partly_cloudy">Partly cloudly</string>
+    <string name="answer_inspection_weather_cloudy">Cloudly</string>
+    <string name="answer_inspection_weather_rain">Rain</string>
+    <string name="answer_inspection_weather_windy">Windy</string>
+
+    <!--Other Strings-->
+    <string name="send">Изпращане</string>
+    <string name="hint_username">Потребителско Име</string>
+    <string name="hind_passwd">Парола</string>
+
+    <string name="temper">Temper of the Hive</string>
+    <string name="calm">Calm</string>
+    <string name="nervious">Nervious</string>
+    <string name="angry">Angry</string>
+
+    <string name="queen">Queen Cells in Brood Combs</string>
+    <string name="y">Yes</string>
+    <string name="n">No</string>
+
+    <string name="combsHoney">Honey Stores</string>
+    <string name="combsPollen">Pollen Stores</string>
+
+    <string name="pestsBeetle">Small Hive Beetle</string>
+    <string name="pestsMites">Varrao Mites</string>
+
+    <string name="high">High</string>
+    <string name="average">Average</string>
+    <string name="low">Low</string>
+
+    <string name="light">Light</string>
+    <string name="heavy">Heavy</string>
+
+    <string name="ants">Safari Ants</string>
+    <string name="chBrood">Chalk Brood</string>
+
+    <string name="hivecond">Hive Condition</string>
+    <string name="good">Good</string>
+    <string name="fair">Fair</string>
+    <string name="poor">Poor</string>
+    <string name="damaged">Damaged</string>
+
+    <string name="name">Потребителско Име</string>
+    <string name="pswd">Парола</string>
+
+    <string name="tools">Protective clothind and beekeeping tools condition</string>
+    <string name="title_activity_apiary_choice">ApiaryChoice</string>
+    <string name="question_apiary_type">Type of apiary</string>
+    <string name="question_apiary_natural">Natural-nest apiaries</string>
+
+
 </resources>

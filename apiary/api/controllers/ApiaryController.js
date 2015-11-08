@@ -25,13 +25,13 @@ module.exports = {
 
       // questions
       water: req.param("water"),
-      vegetationMiombo: req.param("miombo"),
-      vegetationForests: req.param("forests"),
-      vegetationGrass: req.param("grass"),
-      vegetationForestPlantation: req.param("forestPlantation"),
-      vegetationSisalPlantation: req.param("sisalPlantation"),
-      vegetationOrchard: req.param("orchard"),
-      vegetationMixed: req.param("mixed"),
+      miombo: req.param("miombo"),
+      forests: req.param("forests"),
+      grass: req.param("grass"),
+      forestPlantation: req.param("forestPlantation"),
+      sisalPlantation: req.param("sisalPlantation"),
+      orchard: req.param("orchard"),
+      mixed: req.param("mixed"),
       pesticides: req.param("pesticides"),
 
       vehicle: req.param("vehicle"),
@@ -40,7 +40,7 @@ module.exports = {
 
       natural: req.param("natural"),
       tree: req.param("tree"),
-      breastHeight: req.param("height"),
+      height: req.param("height"),
       beeHouse: req.param("beeHouse"),
       badger: req.param("badger")
     };
@@ -75,7 +75,11 @@ module.exports = {
   getOne: function(req, res) {
     Apiary.findOne({
       id: req.param("apiary"),
-      beekeepers: req.user.id
+      or: [{
+        beekeepers: req.user.id
+      }, {
+        user: req.user.id
+      }]
     }).then(_.identity)
     .catch(function(err) {
       sails.log.error("getOne", err);
@@ -88,7 +92,11 @@ module.exports = {
   addBeekeeper: function(req, res) {
     Apiary.findOne({
       id: req.param("apiary"),
-      beekeepers: req.user.id
+      or: [{
+        beekeepers: req.user.id
+      }, {
+        user: req.user.id
+      }]
     }).then(function(apiary) {
       apiary.beekeepers.add(req.param("user"));
       return apiary.save();
@@ -103,7 +111,11 @@ module.exports = {
   removeBeekeeper: function(req, res) {
     Apiary.findOne({
       id: req.param("apiary"),
-      beekeepers: req.user.id
+      or: [{
+        beekeepers: req.user.id
+      }, {
+        user: req.user.id
+      }]
     }).then(function(apiary) {
       apiary.beekeepers.remove(req.param("user"));
       return apiary.save();

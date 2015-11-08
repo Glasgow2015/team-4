@@ -1,35 +1,22 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h2>Create Hive</h2>
-    <div class="form-group">
-      <label>Apiary Name</label>
-      <input type="text" class="form-control" placeholder="Hive Number" ng-model="hive.givenId">
-    </div>
-    <div class="form-group">
-      <label>Coordinates</label>
-      <input type="number" class="form-control" placeholder="Longitude" ng-model="hive.lon">
-      <input type="number" class="form-control" placeholder="Latitude" ng-model="hive.lat">
-    </div>
-    <div class="form-group">
-      <label>Date of installation</label>
-      <input type="number" class="form-control" placeholder="Date of installation" ng-model="hive.date">
-    </div>
-    <div class="form-group">
-      <label>Hive type:&nbsp;</label>
-      <button type="button" class="btn btn-default" ng-model="apiary.type" placeholder="Choose..." bs-options="type.value as type.label for type in types" bs-select>
-        Action <span class="caret"></span>
-      </button>
-    </div>
-    <div class="form-group">
-      <label>Sun exposure:&nbsp;</label>
-      <button type="button" class="btn btn-default" ng-model="apiary.exposure" placeholder="Choose..." bs-options="exposure.value as exposure.label for exposure in exposures" bs-select>
-        Action <span class="caret"></span>
-      </button>
-    </div>
-  </div>
-</div>
-<div class="row" style="margin-bottom:10px">
-  <div class="col-md-2 col-md-offset-10">
-    <button class="btn btn-primary btn-block" ng-click="create()" type="button">Create</button>
-  </div>
+<div class="col-md-12">
+  <div class="col-md-12">
+    <h2>Hive: {{hive.givenId}}</h2>
+    <p>{{hive.date | date }}</p>
+    <p>Coordinates: <b>{{hive.lon + '; ' + hive.lat}}</b></p>
+    <p>Hive type: <b>{{hiveTypes[hive.type]}}</b></p>
+    <p>Sun exposure: <b>{{hiveExposure[hive.exposure]}}</b></p>
+    <md-tabs md-selected="selected" md-border-bottom md-autoselect md-dynamic-height ng-init="selected=0">
+      <md-tab label="Inspections" ng-click="selected=0">
+        <div style="padding: 25px; text-align: center;">
+          <md-button class="col-md-4 md-whiteframe-3dp" ng-repeat="i in inspections" style="padding:25px;margin:25px" ui-sref="main.apiary.hive.inspection({inspection:i.id})">
+            Inspection on {{i.date | date}}<br>
+          </md-button>
+        </div>
+      </md-tab>
+      <md-tab label="Harvests" ng-click="selected=1">
+        <div class="col-md-12" style="padding: 25px; text-align: center;">
+
+        </div>
+      </md-tab>
+    </md-tabs>
 </div>
