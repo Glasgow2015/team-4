@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.btnCreateApiary:
-                intent = new Intent(this, ApiaryActivity.class);
+                intent = new Intent(this, ApiaryChoice.class);
                 break;
             case R.id.btnCreateHive:
                 intent = new Intent(this, HiveActivity.class);

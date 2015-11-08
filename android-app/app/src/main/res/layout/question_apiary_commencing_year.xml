@@ -9,12 +9,12 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_commencing_year"
-        android:id="@+id/textView6"
+        android:id="@+id/txtYear"
         android:layout_marginBottom="10dp" />
 
     <DatePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/datePicker2"
+        android:id="@+id/dateCommencing"
         style="@android:style/Widget.DatePicker" />
 </LinearLayout>

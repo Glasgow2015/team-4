@@ -9,21 +9,21 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_supply_water"
-        android:id="@+id/textView25"
+        android:id="@+id/txtWater"
         android:layout_marginBottom="10dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox16" />
+        android:id="@+id/ckbWater" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_vegetation1"
-        android:id="@+id/textView26"
+        android:id="@+id/txtMiombo"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -31,14 +31,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox17" />
+        android:id="@+id/ckbMiombo" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_vegetation2"
-        android:id="@+id/textView27"
+        android:id="@+id/txtForests"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
 
@@ -46,14 +46,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox18" />
+        android:id="@+id/ckbForests" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_vegetation3"
-        android:id="@+id/textView28"
+        android:id="@+id/txtGrass"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -61,14 +61,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox19" />
+        android:id="@+id/ckbGrass" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_vegetation4"
-        android:id="@+id/textView29"
+        android:id="@+id/txtForestPlantation"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
 
@@ -76,14 +76,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox20" />
+        android:id="@+id/ckbForestPlantation" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_vegetation5"
-        android:id="@+id/textView30"
+        android:id="@+id/txtSisalPlantation"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -91,14 +91,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox21" />
+        android:id="@+id/ckbSisalPlantation" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_vegetation6"
-        android:id="@+id/textView31"
+        android:id="@+id/txtOrchard"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
 
@@ -106,14 +106,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox22" />
+        android:id="@+id/ckbOrchard" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_vegetation7"
-        android:id="@+id/textView32"
+        android:id="@+id/txtMixed"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
 
@@ -121,14 +121,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox23" />
+        android:id="@+id/ckbMixed" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/question_apiary_env_pesticides"
-        android:id="@+id/textView33"
+        android:id="@+id/txtPesticides"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -136,5 +136,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:id="@+id/checkBox24" />
+        android:id="@+id/ckbPesticides" />
 </LinearLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Apiary Management Application</string>
+    <string name="app_name">APIary</string>
     <string name="title_activity_main">Dashboard</string>
     <string name="title_activity_hive">Hive</string>
 
@@ -115,5 +115,45 @@
     <string name="send">Send</string>
     <string name="hint_username">Username</string>
     <string name="hind_passwd">Password</string>
+
+    <string name="temper">Temper of the Hive</string>
+    <string name="calm">Calm</string>
+    <string name="nervious">Nervious</string>
+    <string name="angry">Angry</string>
+
+    <string name="queen">Queen Cells in Brood Combs</string>
+    <string name="y">Yes</string>
+    <string name="n">No</string>
+
+    <string name="combsHoney">Honey Stores</string>
+    <string name="combsPollen">Pollen Stores</string>
+
+    <string name="pestsBeetle">Small Hive Beetle</string>
+    <string name="pestsMites">Varrao Mites</string>
+
+    <string name="high">High</string>
+    <string name="average">Average</string>
+    <string name="low">Low</string>
+
+    <string name="light">Light</string>
+    <string name="heavy">Heavy</string>
+
+    <string name="ants">Safari Ants</string>
+    <string name="chBrood">Chalk Brood</string>
+
+    <string name="hivecond">Hive Condition</string>
+    <string name="good">Good</string>
+    <string name="fair">Fair</string>
+    <string name="poor">Poor</string>
+    <string name="damaged">Damaged</string>
+
+    <string name="name">Username</string>
+    <string name="pswd">Password</string>
+
+    <string name="tools">Protective clothind and beekeeping tools condition</string>
+    <string name="title_activity_apiary_choice">ApiaryChoice</string>
+    <string name="question_apiary_type">Type of apiary</string>
+    <string name="question_apiary_natural">Natural-nest apiaries</string>
+
 
 </resources>
