@@ -1,0 +1,30 @@
+<div class="list-group">
+  <a class="list-group-item" ui-sref="main.apiary">
+    <h4 class="list-group-item-heading">Create new apiary</h4>
+    <p class="list-group-item-text"></p>
+  </a>
+</div>
+
+<div class="list-group" ng-repeat="a in apiaries">
+  <a class="list-group-item" ng-click="select($index)" ng-class="{'active':selected==$index}" style="border-bottom:none">
+    <h4 class="list-group-item-heading">{{a.name}}</h4>
+    <p class="list-group-item-text"></p>
+  </a>
+  <a class="list-group-item" ng-click="select($index)" style="border-top:none">
+    <p class="list-group-item-text">{{a.startYear | date}}</p>
+    <div ng-show="isSelected($index)">
+      <div ng-repeat="q in a.questions" class="row">
+        <div class="col-md-11">
+          {{q.string}}
+        </div>
+        <div class="col-md-1">
+          <input type="checkbox" ng-model="q.value" ng-true-value="'true'" ng-false-value="'false'"/>
+          <b>{{readableTruthy(q.value)}}</b>
+        </div>
+      </div>
+    </div>
+  </a>
+  <a class="list-group-item" ui-sref="">
+    <p class="list-group-item-text" style="color:black">Create Hive</p>
+  </a>
+</div>

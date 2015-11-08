@@ -114,4 +114,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
+        .state("main.apiaries", {
+          url: "apiaries",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/apiaries.html',
+              controller: "apiariesController"
+            }
+          }
+        })
 }])
