@@ -29,23 +29,24 @@ module.exports = {
       return newHive;
     })
     .then(function(newHive) {
-      var file = req.file("file");
-      if (file) {
-        return new Promise(function(resolve, reject) {
-          file.upload(function(err, file) {
-            file = file[0];
-            var writeStream = Grid.grid.fs.streams.createWriteStream();
-            writeStream.on('close', function() {
-              console.log(arguments);
-              // TODO test this
-              resolve(newHive);
-            });
-            Utils.fs.createReadStream(file.fd).pipe(writeStream);
-          });
-        });
-      } else {
-        return newHive;
-      }
+      // var file = req.file("file");
+      // if (file) {
+      //   return new Promise(function(resolve, reject) {
+      //     file.upload(function(err, file) {
+      //       file = file[0];
+      //       var writeStream = Grid.grid.fs.streams.createWriteStream();
+      //       writeStream.on('close', function() {
+      //         console.log(arguments);
+      //         // TODO test this
+      //         resolve(newHive);
+      //       });
+      //       Utils.fs.createReadStream(file.fd).pipe(writeStream);
+      //     });
+      //   });
+      // } else {
+      //   return newHive;
+      // }
+      return newHive;
     })
     .then(Hive.create)
     .catch(function(err) {

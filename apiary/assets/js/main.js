@@ -134,8 +134,10 @@ app.constant("hiveExposure", [
   "Sunny"
 ])
 
-app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", "$http", function($scope, hiveTypes, hiveExposure, $http) {
-  $scope.hive = {}
+app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", "$http", "$stateParams", function($scope, hiveTypes, hiveExposure, $http, $stateParams) {
+  $scope.hive = {
+    apiary: $stateParams.id
+  }
   $scope.types = []
   $scope.exposures = []
   hiveTypes.forEach(function(type, index) {
