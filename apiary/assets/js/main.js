@@ -134,7 +134,7 @@ app.constant("hiveExposure", [
   "Sunny"
 ])
 
-app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", function($scope, hiveTypes, hiveExposure) {
+app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", "$http", function($scope, hiveTypes, hiveExposure, $http) {
   $scope.hive = {}
   $scope.types = []
   $scope.exposures = []
@@ -150,6 +150,11 @@ app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", functio
       label: exposure
     })
   })
+  $scope.create = function() {
+    $http.post("/api/hive/create", $scope.hive).success(function (res) {
+      console.log(res);
+    })
+  }
 }])
 
 app.constant("inspectionWeather", [
