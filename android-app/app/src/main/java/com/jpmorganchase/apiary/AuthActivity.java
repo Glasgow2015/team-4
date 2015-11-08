@@ -55,12 +55,12 @@ public class AuthActivity extends Activity {
         }
     }
 
-    Button clickButton = (Button) findViewById(R.id.clickButton);
+    /*Button clickButton = (Button) findViewById(R.id.clickButton);
     clickButton.setOnClickListener( new OnClickListener() {
         @Override
         public void onClick (View v){
             // TODO Auto-generated method stub
         }
-    });
+    });*/
 
 }
