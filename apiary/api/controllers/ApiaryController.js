@@ -75,7 +75,11 @@ module.exports = {
   getOne: function(req, res) {
     Apiary.findOne({
       id: req.param("apiary"),
-      beekeepers: req.user.id
+      or: [{
+        beekeepers: req.user.id
+      }, {
+        user: req.user.id
+      }]
     }).then(_.identity)
     .catch(function(err) {
       sails.log.error("getOne", err);
@@ -88,7 +92,11 @@ module.exports = {
   addBeekeeper: function(req, res) {
     Apiary.findOne({
       id: req.param("apiary"),
-      beekeepers: req.user.id
+      or: [{
+        beekeepers: req.user.id
+      }, {
+        user: req.user.id
+      }]
     }).then(function(apiary) {
       apiary.beekeepers.add(req.param("user"));
       return apiary.save();
@@ -103,7 +111,11 @@ module.exports = {
   removeBeekeeper: function(req, res) {
     Apiary.findOne({
       id: req.param("apiary"),
-      beekeepers: req.user.id
+      or: [{
+        beekeepers: req.user.id
+      }, {
+        user: req.user.id
+      }]
     }).then(function(apiary) {
       apiary.beekeepers.remove(req.param("user"));
       return apiary.save();
