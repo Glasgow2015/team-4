@@ -4,8 +4,40 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.jpmorganchase.apiary.MainActivity">
 
-    <TextView android:text="Hello World!" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Hive"
+        android:id="@+id/btnCreateHive"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/btnCreateApiary"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Inspection"
+        android:id="@+id/btnCreateInspection"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/btnCreateHive"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Apiary"
+        android:id="@+id/btnCreateApiary"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harvest"
+        android:id="@+id/btnHarvest"
+        android:layout_below="@+id/btnCreateInspection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 </RelativeLayout>

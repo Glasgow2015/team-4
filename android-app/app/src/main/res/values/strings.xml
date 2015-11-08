@@ -1,3 +1,119 @@
 <resources>
-    <string name="app_name">Apiary</string>
+    <string name="app_name">Apiary Management Application</string>
+    <string name="title_activity_main">Dashboard</string>
+    <string name="title_activity_hive">Hive</string>
+
+    <!--Apiary Questions & Answers-->
+    <string name="question_apiary_name">Apiary name</string>
+    <string name="question_apiary_commencing_year">Year of commencing apiary</string>
+    <string name="question_apiary_harvesting_months">Harvesting Months</string>
+    <string name="answer_apiary_month_january">January</string>
+    <string name="answer_apiary_month_february">February</string>
+    <string name="answer_apiary_month_march">March</string>
+    <string name="answer_apiary_month_april">April</string>
+    <string name="answer_apiary_month_may">May</string>
+    <string name="answer_apiary_month_june">June</string>
+    <string name="answer_apiary_month_july">July</string>
+    <string name="answer_apiary_month_august">August</string>
+    <string name="answer_apiary_month_september">September</string>
+    <string name="answer_apiary_month_octomber">Octomber</string>
+    <string name="answer_apiary_month_november">November</string>
+    <string name="answer_apiary_month_december">December</string>
+    <string name="question_apiary_env_supply_water">Is water supply within 3km radius of apiary?</string>
+    <string name="question_apiary_env_vegetation1">Is vegetation within 3km radius of apiary miombo woodlands?</string>
+    <string name="question_apiary_env_vegetation2">Is vegetation within 3km radius of apiary closed forest?</string>
+    <string name="question_apiary_env_vegetation3">Is vegetation within 3km radius of apiary grassland?</string>
+    <string name="question_apiary_env_vegetation4">Is vegetation within 3km radius of apiary forest plantation?</string>
+    <string name="question_apiary_env_vegetation5">Is vegetation within 3km radius of apiary sisal plantation?</string>
+    <string name="question_apiary_env_vegetation6">Is vegetation within 3km radius of apiary orchard?</string>
+    <string name="question_apiary_env_vegetation7">Is vegetation within 3km radius of apiary mixed crops?</string>
+    <string name="question_apiary_env_pesticides">Do farmers within a radius of 3km of the apiary use pesticides?</string>
+    <string name="question_apiary_acs_vehicle">Is the apiary accessible by vehicles?</string>
+    <string name="question_apiary_acs_bicycle">Is the apiary accessible by bicycle, motorcycle?</string>
+    <string name="question_apiary_acs_foot">Is the apiary accessible by foot?</string>
+    <string name="question_apiary_acs_tree">Tree apiaries?</string>
+    <string name="question_apiary_acs_breast">Breast height (or stand) apiaries?</string>
+    <string name="question_apiary_acs_house">Bee house apiaries?</string>
+    <string name="question_apiary_acs_honey">Honey badger stand?</string>
+
+    <!--Harvest Questions & Answers-->
+    <string name="question_harvest_buckets">Number of clean, airtight buckets available for harvest</string>
+    <string name="question_harvest_date">Date</string>
+    <string name="question_harvest_proc_cloth">Protective clothing available for beekeeper?</string>
+    <string name="question_harvest_proc_assistant">Protective clothing available for all assistants?</string>
+    <string name="question_harvest_proc_smoker">Smoker available?</string>
+    <string name="answer_yes">Yes</string>
+    <string name="question_harvest_quantity">Quantity</string>
+
+    <!--Hive Questions & Answers-->
+    <string name="question_hive_install">Date of installation</string>
+    <string name="question_hive_number">Hive number</string>
+    <string name="question_hive_sun">Sun Exposure</string>
+    <string name="answer_hive_sun_shady">Shady</string>
+    <string name="answer_hive_sun_shade">Partial shade</string>
+    <string name="answer_hive_sun_sunny">Sunny</string>
+    <string name="question_hive_type">Hive Type</string>
+    <string name="answer_hive_traditional">Traditional hive</string>
+    <string name="answer_hive_topbar">Top bar hive</string>
+    <string name="answer_hive_queen">Top bar hive with queen excluder</string>
+    <string name="answer_hive_longstrow">Langstroth hive</string>
+    <string name="answer_hive_other">Other</string>
+
+    <!--Inspection Questions & Answers-->
+    <string name="question_inspection_strength">Strength of the colony - estimation of inspection</string>
+    <string name="answer_inspection_strong">Strong</string>
+    <string name="answer_inspection_moderate">Moderate</string>
+    <string name="answer_inspection_weak">Weak</string>
+    <string name="answer_inspection_critical">Critical</string>
+    <string name="answer_inspection_comb_cond">Condition of combs</string>
+    <string name="answer_inspection_honey_stores">Honey Stores</string>
+    <string name="answer_inspection_high">High</string>
+    <string name="answer_inspection_average">Average</string>
+    <string name="answer_inspection_low">Low</string>
+    <string name="question_inspection_pollen_stores">Pollen Stores</string>
+    <string name="question_inspection_date">Inspection Date</string>
+    <string name="question_inspection_diseases">Diseases and Pets</string>
+    <string name="question_inspection_hive_beetles">Small Hive Beetle</string>
+    <string name="answer_inspection_light">Light</string>
+    <string name="answer_inspection_heavy">Heavy</string>
+    <string name="question_inspection_varrao_mites">Varrao Mites</string>
+    <string name="question_inspection_ants">Safari Ants</string>
+    <string name="question_inspection_chalk_brood">Chalk Brood</string>
+    <string name="question_inspection_hive_cond">Hive condition</string>
+    <string name="answer_inspection_good">Good</string>
+    <string name="answer_inspection_fair">Fair</string>
+    <string name="answer_inspection_poor">Poor</string>
+    <string name="answer_inspection_damaged">Damaged</string>
+    <string name="question_inspection_hive_state">State of hive</string>
+    <string name="answer_inspection_hive_notinstalled">Not in use/not installed</string>
+    <string name="answer_inspection_hive_notoccu">Not yet occupied</string>
+    <string name="answer_inspection_hive_occu">Occupied</string>
+    <string name="answer_inspection_hive_absconded">Absconded</string>
+    <string name="answer_inspection_hive_dead1">Dead, because of robbing</string>
+    <string name="answer_inspection_hive_dead2">Dead, because of honey badger</string>
+    <string name="answer_inspection_hive_dead3">Dead, because of mites</string>
+    <string name="answer_inspection_hive_dead4">Dead, because of beetle</string>
+    <string name="answer_inspection_hive_dead5">Dead, because of beetle</string>
+    <string name="answer_inspection_hive_dead6">Dead, because of fire</string>
+    <string name="answer_inspection_hive_dead7">Dead, because of flood</string>
+    <string name="answer_inspection_hive_dead8">Dead, reason unknown</string>
+    <string name="question_inspection_hive_num">Hive Number</string>
+    <string name="question_inspection_queen_cells">Queen cells in brood combs?</string>
+    <string name="question_inspection_temp_hive">Temper of the hive</string>
+    <string name="answer_inspection_temp_calm">Calm</string>
+    <string name="answer_inspection_temp_nervous">Nervous</string>
+    <string name="answer_inspection_temp_angry">Angry</string>
+    <string name="question_inspection_tools"><![CDATA[Protective clothing & beekeeping tools condition]]></string>
+    <string name="question_inspection_weather_cond">Weather conditions</string>
+    <string name="answer_inspection_weather_sunny">Sunny</string>
+    <string name="answer_inspection_weather_partly_cloudy">Partly cloudly</string>
+    <string name="answer_inspection_weather_cloudy">Cloudly</string>
+    <string name="answer_inspection_weather_rain">Rain</string>
+    <string name="answer_inspection_weather_windy">Windy</string>
+
+    <!--Other Strings-->
+    <string name="send">Send</string>
+    <string name="hint_username">Username</string>
+    <string name="hind_passwd">Password</string>
+
 </resources>
