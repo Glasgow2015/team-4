@@ -10,23 +10,57 @@
       <a class="navbar-brand" href="#"><i class="fa fa-pagelines"></i> Apiary</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" ng-show="currentUser">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Apiary</a></li>
-            <li><a href="#">Hive</a></li>
-            <li><a href="#">Inspection</a></li>
-            <li><a href="#">Harvest</a></li>
+          <a type="button" data-animation="am-flip-x" bs-dropdown aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a ui-sref="main.apiary">Apiary</a></li>
+            <li><a ui-sref="main.hive">Hive</a></li>
+            <li><a ui-sref="main.inspection">Inspection</a></li>
+            <li><a ui-sref="main.harvest">Harvest</a></li>
           </ul>
         </li>
         <li><a href="#">Reports</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Login</a></li>
+        <li><a ui-sref="login" ng-hide="currentUser">Login</a></li>
+        <li><a ui-sref="register" ng-hide="currentUser">Register</a></li>
+        <li><a ng-show="currentUser">{{currentUser.username}}</a></li>
+        <li><a ng-show="currentUser" ng-click="logout()">Logout</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
+
+<!-- <md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2>
+      <span>APIARY</span>
+    </h2>
+    <md-menu>
+      <md-button class="md-raised" ng-click="openMenu($mdOpenMenu, $event)" style="color:black">
+        Create
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item>
+          <md-button ui-sref="main.apiary">
+            Apiary
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ui-sref="main.hive">
+            Hive
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ui-sref="main.inspection">
+            Inspection
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+    <span flex></span>
+  </div>
+</md-toolbar> -->
