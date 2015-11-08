@@ -51,7 +51,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
               controller: 'navbarController'
             },
             'body@main': {
-              templateUrl: '/templates/home.html'
+              templateUrl: '/templates/apiaries.html',
+              controller: "apiariesController"
             }
           }
         })
@@ -64,8 +65,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
-        .state("main.hive", {
-          url: "hive",
+        .state("main.apiary.hive", {
+          url: "/:id/hive",
           views: {
             'body@main': {
               templateUrl: '/templates/hive.html',
