@@ -38,7 +38,8 @@
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button4"
-        android:layout_below="@+id/button3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp" />
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/btnCreateInspection"
+        android:layout_alignRight="@+id/btnCreateHive"
+        android:layout_alignEnd="@+id/btnCreateHive" />
 </RelativeLayout>
