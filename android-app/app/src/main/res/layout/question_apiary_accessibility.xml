@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is the apiary accessible by vehicles?"
+        android:text="@string/question_apiary_acs_vehicle"
         android:id="@+id/textView34"
         android:layout_marginBottom="10dp" />
 
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is the apiary accessible by bicycle, motorcycle?"
+        android:text="@string/question_apiary_acs_bicycle"
         android:id="@+id/textView35"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is the apiary accessible by foot?"
+        android:text="@string/question_apiary_acs_foot"
         android:id="@+id/textView36"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Tree apiaries?"
+        android:text="@string/question_apiary_acs_tree"
         android:id="@+id/textView37"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Breast height (or stand) apiaries?"
+        android:text="@string/question_apiary_acs_breast"
         android:id="@+id/textView38"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bee house apiaries?"
+        android:text="@string/question_apiary_acs_house"
         android:id="@+id/textView39"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
@@ -97,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Honey badger stand?"
+        android:text="@string/question_apiary_acs_honey"
         android:id="@+id/textView40"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />

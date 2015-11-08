@@ -1,11 +1,12 @@
 package com.jpmorganchase.apiary;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -15,21 +16,28 @@ import java.net.PasswordAuthentication;
 import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
+    static String host = "http://www.google.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
         Button clickButton = (Button) findViewById(R.id.btnLogin);
         clickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText username = (EditText) findViewById(R.id.name);
+                EditText password = (EditText) findViewById(R.id.pswd);
 
+                AsyncTask log = new Logging(username.getText().toString(), password.getText().toString());
+
+                log.execute(null);
             }
         });
     }
 
-    private class Logging extends AsyncTask<URL, Void, Long> {
+    protected class Logging extends AsyncTask<Object, Void, Long> {
 
         String username;
         String password;
@@ -40,17 +48,19 @@ public class LoginActivity extends AppCompatActivity {
             this.password = password;
         }
 
-        protected Long doInBackground(URL... url) {
+        protected Long doInBackground(Object... x) {
             HttpURLConnection urlConnection;
             try {
-                urlConnection = (HttpURLConnection) url[0].openConnection();
+                URL conn = new URL(host);
+                urlConnection = (HttpURLConnection) conn.openConnection();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                System.out.println(urlConnection.getResponseMessage());
 
-                if (!url[0].getHost().equals(urlConnection.getURL().getHost())) {
+                if (!conn.getHost().equals(urlConnection.getURL().getHost())) {
 
                 }
             } catch (Exception e) {
-
+                Log.e("Bees", e.getMessage());
             } finally {
             }
 

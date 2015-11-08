@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Temper of the hive"
+        android:text="@string/question_inspection_temp_hive"
         android:id="@+id/textView13"
         android:layout_marginBottom="10dp" />
 
@@ -20,19 +20,19 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calm"
+            android:text="@string/answer_inspection_temp_calm"
             android:id="@+id/radioButton30" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nervous"
+            android:text="@string/answer_inspection_temp_nervous"
             android:id="@+id/radioButton31" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Angry"
+            android:text="@string/answer_inspection_temp_angry"
             android:id="@+id/radioButton32" />
     </RadioGroup>
 
