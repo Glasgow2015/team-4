@@ -13,9 +13,11 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Authenticator;
+import java.net.HttpCookie;
 import java.net.HttpURLConnection;
 import java.net.PasswordAuthentication;
 import java.net.URL;
@@ -23,7 +25,9 @@ import java.util.HashMap;
 
 public class ApiaryActivity extends Activity implements View.OnClickListener {
 
-    HashMap<String, String> json;
+
+
+    HashMap<String, String> json = new HashMap<String, String>();
 
     Button btnSendApiary;
 
@@ -149,6 +153,8 @@ public class ApiaryActivity extends Activity implements View.OnClickListener {
 
     protected class StoreApiary extends AsyncTask<Object, Void, Long> {
 
+
+
         protected Long doInBackground(Object... x) {
             try {
                 String url="http://ec2-54-216-204-98.eu-west-1.compute.amazonaws.com:8080/api/apiary/create";
@@ -159,13 +165,22 @@ public class ApiaryActivity extends Activity implements View.OnClickListener {
                 con.setDoInput(true);
                 con.setRequestProperty("Content-Type", "application/json");
                 con.setRequestProperty("Accept", "application/json");
-                String userpass = "";//username + ":" + password;
-                String basicAuth = "Basic " + new String(Base64.encode(userpass.getBytes("UTF-8"), Base64.DEFAULT));
-                con.setRequestProperty ("Authorization", basicAuth);
+                HttpCookie httpCookie = Cookie.manager.getCookieStore().getCookies().get(0);
+                con.setRequestProperty("Cookie", httpCookie.toString());
+                //String userpass = "";//username + ":" + password;
+                //String basicAuth = "Basic " + new String(Base64.encode(userpass.getBytes("UTF-8"), Base64.DEFAULT));
+               // con.setRequestProperty ("Authorization", basicAuth);
                 con.setRequestMethod("POST");
 
-                OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                //Send request
+                DataOutputStream wr = new DataOutputStream(con.getOutputStream ());
+                wr.writeBytes("{\"lat\":0, \"lon\":0, \"year\":2010, \"name\":\"TanzaneanApiary\"}");
                 wr.flush();
+                wr.close ();
+
+               /* OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+                wr.
+                wr.flush();*/
 
                 StringBuilder sb = new StringBuilder();
                 int HttpResult = con.getResponseCode();

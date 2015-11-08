@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         clickButtonL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 EditText username = (EditText) findViewById(R.id.name);
                 EditText password = (EditText) findViewById(R.id.pswd);
                 String url="http://ec2-54-216-204-98.eu-west-1.compute.amazonaws.com:8080/api/auth/local/login";
@@ -54,16 +55,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText username = (EditText) findViewById(R.id.regName);
                 EditText password = (EditText) findViewById(R.id.regPswd);
-                String url="http://ec2-54-216-204-98.eu-west-1.compute.amazonaws.com:8080/api/auth/local/register";
+                String url = "http://ec2-54-216-204-98.eu-west-1.compute.amazonaws.com:8080/api/auth/local/register";
 
-                AsyncTask log = new Logging(url, username.getText().toString(), password.getText().toString(),"POST");
+                AsyncTask log = new Logging(url, username.getText().toString(), password.getText().toString(), "POST");
 
                 log.execute(null);
             }
         });
     }
 
-    protected class Logging extends AsyncTask<Object, Void, Long> {
+    protected class Logging extends AsyncTask<Object, Void, Boolean> {
         static final String COOKIES_HEADER = "Set-Cookie";
 
         String username;
@@ -79,7 +80,8 @@ public class LoginActivity extends AppCompatActivity {
             this.requestMethod = requestMethod;
         }
 
-        protected Long doInBackground(Object... x) {
+        protected Boolean doInBackground(Object... x) {
+            Boolean res = false;
             try {
                 URL object=new URL(url);
 
@@ -91,8 +93,9 @@ public class LoginActivity extends AppCompatActivity {
                 String userpass = username + ":" + password;
                 String basicAuth = "Basic " + new String(Base64.encode(userpass.getBytes("UTF-8"), Base64.DEFAULT));
                 con.setRequestProperty ("Authorization", basicAuth);
-                con.setRequestProperty("Cookie", TextUtils.join(";", Cookie.manager.getCookieStore().getCookies()));
+//                con.setRequestProperty("Cookie", TextUtils.join(";", Cookie.manager.getCookieStore().getCookies()));
                 con.setRequestMethod(requestMethod);
+//                System.out.println("Cookie@"+Cookie.manager.getCookieStore().getCookies());
 
                 OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
                 wr.flush();
@@ -119,8 +122,11 @@ public class LoginActivity extends AppCompatActivity {
                             Cookie.manager.getCookieStore().add(null, HttpCookie.parse(cookie).get(0));
                         }
                     }
+                    TextUtils.join(";", Cookie.manager.getCookieStore().getCookies());
+
 
                     System.out.println(""+sb.toString());
+                    res = true;
 
                 }else{
                     Log.e("Bees", con.getResponseMessage());
@@ -136,12 +142,17 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
             });
-            return null;
+            return res;
         }
 
-        protected void onPostExecute(Long result) {
-            Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(myIntent);
+        protected void onPostExecute(Boolean result) {
+            if (result) {
+                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(myIntent);
+            }
+            else {
+                throw new Error("Login failed");
+            }
         }
     }
 }

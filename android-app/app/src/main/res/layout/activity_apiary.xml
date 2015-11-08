@@ -19,6 +19,8 @@
             <include layout="@layout/question_apiary_commencing_year"/>
             <include layout="@layout/question_apiary_harvesting_months"/>
             <include layout="@layout/question_apiary_environment"/>
+            <include layout="@layout/question_apiary_accessibility"/>
+            <include layout="@layout/question_apiary_type"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
