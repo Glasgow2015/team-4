@@ -37,6 +37,7 @@ module.exports = {
             var writeStream = Grid.grid.fs.streams.createWriteStream();
             writeStream.on('close', function() {
               console.log(arguments);
+              // TODO test this
               resolve(newHive);
             });
             Utils.fs.createReadStream(file.fd).pipe(writeStream);

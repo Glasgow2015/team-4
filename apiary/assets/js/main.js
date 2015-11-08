@@ -2,6 +2,14 @@ var app = angular.module("mainModule", []);
 
 app.controller("mainController", ["currentUser", "$scope", function(currentUser, $scope) {
   $scope.currentUser = currentUser;
+
+  $scope.readableTruthy = function(bool) {
+    if(bool == true || bool == 'true') {
+      return "Yes"
+    } else {
+      return "No"
+    }
+  }
 }])
 
 app.controller("masterController", ["User", "$scope", function(User, $scope) {
@@ -47,14 +55,6 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "month
     })
   }
 
-  $scope.readableTruthy = function(bool) {
-    if(bool) {
-      return "Yes"
-    } else {
-      return "No"
-    }
-  }
-
 }])
 
 .constant('apiaryQuestions', [
@@ -63,25 +63,25 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "month
     model: "water"
   },{
     string: "Is vegetation within 3km radius of apiary miombo woodlands",
-    model: "miombo"
+    model: "vegetationMiombo"
   },{
     string: "Is vegetation within 3km radius of apiary closed forests",
-    model: "forests"
+    model: "vegetationForests"
   },{
     string: "Is vegetation within 3km radius of apiary grassland",
-    model: "grass"
+    model: "vegetationGrass"
   },{
     string: "Is vegetation within 3km radius of apiary forest plantation",
-    model: "forestPlantation"
+    model: "vegetationForestPlantation"
   },{
     string: "Is vegetation within 3km radius of apiary sisal plantation",
-    model: "sisalPlantation"
+    model: "vegetationSisalPlantation"
   }, {
     string: "Is vegetation within 3km radius of apiary orchard",
-    model: "orchard"
+    model: "vegetationOrchard"
   }, {
     string: "Is vegetation within 3km radius of apiary mixed crops",
-    model: "mixed"
+    model: "vegetationMixed"
   }, {
     string: "Do farmers within a radius of 3km of the apiary use pesticides",
     model: "pesticides"
@@ -315,4 +315,43 @@ app.factory("User", [function() {
       current = user;
     }
   }
+}])
+
+app.controller("apiariesController", ["$scope", "$http", "apiaryQuestions", function($scope, $http, apiaryQuestions) {
+  $scope.apiaries = [];
+  $scope.selected = -1;
+  var getApiaries = function () {
+    $http.get("/api/apiary").success(function(res) {
+      $scope.apiaries = res;
+      matchQuestions($scope.apiaries);
+    })
+  }
+
+  $scope.select = function(index) {
+    if($scope.isSelected(index)) {
+      $scope.selected = -1;
+    } else {
+      $scope.selected = index;
+    }
+  }
+
+  $scope.isSelected = function(index){
+    return $scope.selected == index;
+  }
+  getApiaries();
+
+  var matchQuestions = function(apiaries) {
+    apiaries.forEach(function(a) {
+      a.questions = [];
+      apiaryQuestions.forEach(function(q) {
+        if(a[q.model]) {
+          a.questions.push({
+            string: q.string,
+            value: a[q.model]
+          })
+        }
+      })
+    })
+  }
+
 }])
