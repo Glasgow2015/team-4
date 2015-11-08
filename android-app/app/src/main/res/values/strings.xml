@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Apiary Management Application</string>
+    <string name="app_name">APIary</string>
     <string name="title_activity_main">Dashboard</string>
     <string name="title_activity_hive">Hive</string>
 
