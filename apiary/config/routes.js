@@ -43,7 +43,7 @@ module.exports.routes = {
 
   'post /api/apiary/create': 'ApiaryController.create',
   'get /api/apiary': 'ApiaryController.get',
-  'get /api/apiary/:apiary/one': 'ApiaryController.getOne',
+  'get /api/apiary/:apiary': 'ApiaryController.getOne',
   'post /api/apiary/beekeeper/add': 'ApiaryController.addBeekeeper',
   'post /api/apiary/beekeeper/remove': 'ApiaryController.removeBeekeeper',
 
