@@ -28,6 +28,7 @@ The system under development consists of;
  
  ## System Design
 
+ #### Activity Diagram
  ![alt text](https://github.com/Glasgow2015/team-4/blob/master/Project%20Design%20team4.jpg "System Design")
  
  
