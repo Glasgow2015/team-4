@@ -50,8 +50,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
               controller: 'navbarController'
             },
             'body@main': {
-              templateUrl: '/templates/apiaries.html',
-              controller: "apiariesController"
+              templateUrl: '/templates/home.html'
             }
           }
         })
