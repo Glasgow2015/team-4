@@ -91,12 +91,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
-        .state("main.inspection", {
-          url: "inspection",
+        .state("main.apiary.hive.inspection_create", {
+          url: "/inspection/create",
           views: {
             'body@main': {
-              templateUrl: '/templates/inspection.html',
-              controller: 'inspectionController'
+              templateUrl: '/templates/inspection_create.html',
+              controller: 'inspectionCreateController'
+            }
+          }
+        })
+        .state("main.apiary.hive.harvest_create", {
+          url: "/harvest/create",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/harvest_create.html',
+              controller: 'harvestCreateController'
             }
           }
         })

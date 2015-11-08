@@ -49,10 +49,12 @@ module.exports.policies = {
     getByApiary: ['sessionAuth'],
   },
   InspectionController: {
-    create: ['sessionAuth']
+    create: ['sessionAuth'],
+    getByHive: ['sessionAuth']
   },
   HarvestController: {
-    create: ['sessionAuth']
+    create: ['sessionAuth'],
+    getByHive: ['sessionAuth']
   }
 
   /***************************************************************************

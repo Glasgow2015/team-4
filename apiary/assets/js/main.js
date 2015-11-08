@@ -58,6 +58,10 @@ app.controller("mainController", ["currentUser", "$scope", "apiaryQuestions", "$
   $scope.isApiary = function() {
     return $state.current.name == "main.apiary" || $state.current.name.indexOf("main.apiary.") > -1
   }
+
+  $scope.isHive = function() {
+    return $state.current.name == "main.apiary.hive" || $state.current.name.indexOf("main.apiary.hive.") > -1
+  }
 }])
 
 app.controller("masterController", ["User", "$scope", function(User, $scope) {
@@ -209,6 +213,13 @@ app.controller("hiveController", ["$scope", "$http", "$stateParams", function($s
     })
   }
   $scope.getHive();
+
+  $scope.getInspections = function() {
+    $http.get("/api/inspection/hive/"+$stateParams.hive).success(function(res) {
+      $scope.inspections = res;
+    })
+  }
+  $scope.getInspections();
 }])
 
 app.controller("hiveCreateController", ["$scope", "hiveTypes", "hiveExposure", "$http", "$stateParams", "$state", function($scope, hiveTypes, hiveExposure, $http, $stateParams, $state) {
@@ -293,9 +304,28 @@ app.constant("conditions", [
   "Damaged"
 ])
 
-app.controller("inspectionController", ["$scope", "inspectionWeather", "inspectionState", "inspectionStrenght", "inspectionTemper", "levels", "weights", "conditions",
-function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspectionTemper, levels, weights, conditions) {
+app.controller("inspectionController", ["$scope", "$http", "$stateParams", function($scope, $http, $stateParams) {
   $scope.inspection = {}
+  $scope.getInspection = function() {
+    $http.get("/api/hive/"+$stateParams.hive).success(function(res) {
+      $scope.hive = res;
+    })
+  }
+  $scope.getHive();
+
+  $scope.getInspections = function() {
+    $http.get("/api/inspection/hive/"+$stateParams.hive).success(function(res) {
+      $scope.inspections = res;
+    })
+  }
+  $scope.getInspections();
+}])
+
+app.controller("inspectionCreateController", ["$scope", "inspectionWeather", "inspectionState", "inspectionStrenght", "inspectionTemper", "levels", "weights", "conditions", "$http", "$stateParams",
+function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspectionTemper, levels, weights, conditions, $http, $stateParams) {
+  $scope.inspection = {
+    hive: $stateParams.hive
+  }
   $scope.things = [
     {
       label: "Weather conditions",
@@ -350,6 +380,12 @@ function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspect
       })
     })
   })
+
+  $scope.create = function() {
+    $http.post("/api/inspection/create", $scope.inspection).success(function(res) {
+      console.log(res);
+    })
+  }
 }])
 
 app.controller("registerController", ["$scope", "$state", "$http", function($scope, $state, $http) {

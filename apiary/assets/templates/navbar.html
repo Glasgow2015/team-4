@@ -42,6 +42,14 @@
     <md-button class="md-raised" ui-sref="main.apiary.hive_create" style="color:black" ng-show="isApiary()">
       New Hive
     </md-button>
+    <div ng-show="isHive()">
+      <md-button class="md-raised" ui-sref="main.apiary.hive.inspection_create" style="color:black">
+        New Inspection
+      </md-button>
+      <md-button class="md-raised" ui-sref="main.apiary.hive.harvest_create" style="color:black">
+        New Harvest
+      </md-button>
+    </div>
     <span flex></span>
   </div>
 </md-toolbar>

@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <div class="col-md-12">
+    <h2>Create Inspection</h2>
+    <!-- <div class="form-group">
+      <label>Hive Number</label>
+      <input type="text" class="form-control" placeholder="Hive Number" ng-model="inspection.hive">
+    </div> -->
+    <div class="form-group">
+      <label>Date of inspection</label>
+      <input type="text" class="form-control" placeholder="Date" ng-model="inspection.date">
+    </div>
+  </div>
+  <div class="col-md-6" ng-repeat="question in things" style="padding:10px">
+    <div class="col-md-8">
+      <label>{{question.label}}:&nbsp;</label>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn btn-default" ng-model="inspection[question.model]" placeholder="Choose..." bs-options="option.value as option.label for option in question.array" bs-select>
+        Action <span class="caret"></span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="col-md-12" style="margin-bottom:10px">
+  <div class="col-md-2 col-md-offset-5">
+    <button class="btn btn-primary btn-block" ng-click="create()" type="button">Create</button>
+  </div>
+</div>

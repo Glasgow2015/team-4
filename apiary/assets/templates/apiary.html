@@ -22,7 +22,7 @@
     </md-tab>
     <md-tab label="Hives" ng-click="selected=1">
       <div class="col-md-12" style="padding: 25px; text-align: center;">
-        <md-button class="col-md-4 md-whiteframe-3dp" ng-repeat="hive in hives" style="padding:25px;margin:25px" ui-sref="main.apiary.hive({hive:'hive.id'})">
+        <md-button class="col-md-4 md-whiteframe-3dp" ng-repeat="hive in hives" style="padding:25px;margin:25px" ui-sref="main.apiary.hive({hive:hive.id})">
           {{'Hive: ' + hive.givenId}}<br>
           {{hive.installationDate | date}}
         </md-button>

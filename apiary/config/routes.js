@@ -54,10 +54,10 @@ module.exports.routes = {
   'get  /api/hive/apiary/:apiary': 'HiveController.getByApiary',
 
   'post /api/inspection/create': 'InspectionController.create',
-  'get  /api/inspection/get': 'InspectionController.getByHive',
+  'get  /api/inspection/hive/:hive': 'InspectionController.getByHive',
 
   'post /api/harvest/create': 'HarvestController.create',
-  'get  /api/harvest/get': 'HarvestController.getByHive'
+  'get  /api/harvest/hive/:hive': 'HarvestController.getByHive'
 
   /***************************************************************************
   *                                                                          *

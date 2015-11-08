@@ -1,5 +1,5 @@
 <div class="col-md-12">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <h2>Hive: {{hive.givenId}}</h2>
     <p>{{hive.date | date }}</p>
     <p>Coordinates: <b>{{hive.lon + '; ' + hive.lat}}</b></p>
@@ -8,12 +8,14 @@
     <md-tabs md-selected="selected" md-border-bottom md-autoselect md-dynamic-height ng-init="selected=0">
       <md-tab label="Inspections" ng-click="selected=0">
         <div style="padding: 25px; text-align: center;">
-          Inspections
+          <md-button class="col-md-4 md-whiteframe-3dp" ng-repeat="i in inspections" style="padding:25px;margin:25px" ui-sref="main.apiary.hive.inspection({inspection:i.id})">
+            Inspection on {{i.date | date}}<br>
+          </md-button>
         </div>
       </md-tab>
       <md-tab label="Harvests" ng-click="selected=1">
-        <div style="padding: 25px; text-align: center;">
-          Harvests
+        <div class="col-md-12" style="padding: 25px; text-align: center;">
+
         </div>
       </md-tab>
     </md-tabs>
