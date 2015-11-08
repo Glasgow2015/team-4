@@ -41,7 +41,7 @@ Returns the currently logged in user information.
 Given the answeres for all questions, a location (lat and long) and a name, it creates a new apiary.
 All the keys for the questions are keywords from the questions themselves.
 
-```
+  ```javascript
   name: {
     type: 'string'
   },
@@ -63,7 +63,7 @@ All the keys for the questions are keywords from the questions themselves.
   },
 
   // questions
-  //environment
+  // environment
   water: {
     type: 'string'
   },
@@ -145,7 +145,7 @@ All the keys for the questions are keywords from the questions themselves.
   
   Given an apiary and an answer to all questions it creates a new hive inside the apiary.
   
-  ```
+  ```javascript
   givenId: {
     type: "string"
   },
@@ -193,7 +193,7 @@ All the keys for the questions are keywords from the questions themselves.
   
   Creates a new Inspection for a given hive.
   
-  ```
+  ```javascript
   givenHive: {
     type: "string"
   },
@@ -255,7 +255,7 @@ All the keys for the questions are keywords from the questions themselves.
   
   Create a new Harvest for a given hive
   
-  ```
+  ```javascript
   date: {
     type: "date"
   },
