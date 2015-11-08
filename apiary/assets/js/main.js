@@ -1,24 +1,50 @@
 var app = angular.module("mainModule", []);
 
-app.controller("mainController", [function() {
-
+app.controller("mainController", ["currentUser", "$scope", function(currentUser, $scope) {
+  $scope.currentUser = currentUser;
 }])
 
 app.controller("masterController", ["User", "$scope", function(User, $scope) {
-  $scope.currentUser = User.getCurrent();
 }])
 
-app.controller("apiaryController", ["$scope", "apiaryQuestions", function($scope, apiaryQuestions) {
-  $scope.apiry = {}
+app.constant("months", [
+  "January",
+  "February",
+  "March",
+  "April",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+])
+
+app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "months", function($scope, apiaryQuestions, $http, months) {
+  $scope.apiary = {}
   $scope.questions = []
+  $scope.months = []
   apiaryQuestions.forEach(function(q) {
     $scope.questions.push({
-      string: q,
-      value: false
+      string: q.string,
+      value: false,
+      model: q.model
+    })
+  })
+  months.forEach(function(month, index) {
+    $scope.months.push({
+      value: index+1,
+      label: month
     })
   })
   $scope.create = function() {
+    $scope.questions.forEach(function(q) {
+      $scope.apiary[q.model] = q.value
+    })
+    $http.post("/api/apiary/create", $scope.apiary).success(function (res) {
 
+    })
   }
 
   $scope.readableTruthy = function(bool) {
@@ -32,26 +58,66 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", function($scope
 }])
 
 .constant('apiaryQuestions', [
-  "Is water supply within 3km radius of apiary",
-  "Is vegetation within 3km radius of apiary miombo woodlands",
-  "Is vegetation within 3km radius of apiary closed forests",
-  "Is vegetation within 3km radius of apiary grassland",
-  "Is vegetation within 3km radius of apiary forest plantation",
-  "Is vegetation within 3km radius of apiary sisal pantation",
-  "Is vegetation within 3km radius of apiary orchard",
-  "Is vegetation within 3km radius of apiary mixed crops",
-  "Do farmers within a radius of 3km of the apiary use pesticides",
-  "Is the apiary accessible by vehicles",
-  "Is the apiary accessible by bycicle or motorcycle",
-  "Is the apiary accessible by foot",
-  "Natural nest apiaries",
-  "Tree apiaries",
-  "Breast height (or stand) apiaries",
-  "Bee house apiaries",
-  "Honey badger stand"
+  {
+    string: "Is water supply within 3km radius of apiary",
+    model: "water"
+  },{
+    string: "Is vegetation within 3km radius of apiary miombo woodlands",
+    model: "miombo"
+  },{
+    string: "Is vegetation within 3km radius of apiary closed forests",
+    model: "forests"
+  },{
+    string: "Is vegetation within 3km radius of apiary grassland",
+    model: "grass"
+  },{
+    string: "Is vegetation within 3km radius of apiary forest plantation",
+    model: "forestPlantation"
+  },{
+    string: "Is vegetation within 3km radius of apiary sisal plantation",
+    model: "sisalPlantation"
+  }, {
+    string: "Is vegetation within 3km radius of apiary orchard",
+    model: "orchard"
+  }, {
+    string: "Is vegetation within 3km radius of apiary mixed crops",
+    model: "mixed"
+  }, {
+    string: "Do farmers within a radius of 3km of the apiary use pesticides",
+    model: "pesticides"
+  }, {
+    string: "Is the apiary accessible by vehicles",
+    model: "vehicle"
+  }, {
+    string: "Is the apiary accessible by bycicle or motorcycle",
+    model: "cycle"
+  }, {
+    string: "Is the apiary accessible by foot",
+    model: "foot"
+  }, {
+    string: "Natural nest apiaries",
+    model: "natural"
+  }, {
+    string: "Tree apiaries",
+    model: "tree"
+  }, {
+    string: "Breast height (or stand) apiaries",
+    model: "height"
+  }, {
+    string: "Bee house apiaries",
+    model: "beeHouse"
+  }, {
+    string: "Honey badger stand",
+    model: "badger"
+  }
 ])
 
-app.controller("navbarController", ["$scope", "User", function($scope, User) {
+app.controller("navbarController", ["$scope", "$http", "$state", function($scope, $http, $state) {
+  $scope.logout = function() {
+    $http.get("/logout").success(function() {
+      $state.go("login");
+    })
+  }
 }])
 
 app.constant("hiveTypes", [
@@ -68,7 +134,7 @@ app.constant("hiveExposure", [
   "Sunny"
 ])
 
-app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", function($scope, hiveTypes, hiveExposure) {
+app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", "$http", function($scope, hiveTypes, hiveExposure, $http) {
   $scope.hive = {}
   $scope.types = []
   $scope.exposures = []
@@ -84,6 +150,11 @@ app.controller("hiveController", ["$scope", "hiveTypes", "hiveExposure", functio
       label: exposure
     })
   })
+  $scope.create = function() {
+    $http.post("/api/hive/create", $scope.hive).success(function (res) {
+      console.log(res);
+    })
+  }
 }])
 
 app.constant("inspectionWeather", [
@@ -200,7 +271,7 @@ function($scope, inspectionWeather, inspectionState, inspectionStrenght, inspect
   })
 }])
 
-app.controller("registerController", ["$scope", "$state", "$http", "User", function($scope, $state, $http, User) {
+app.controller("registerController", ["$scope", "$state", "$http", function($scope, $state, $http) {
   $scope.user = {
     username: "",
     password: ""
@@ -213,26 +284,24 @@ app.controller("registerController", ["$scope", "$state", "$http", "User", funct
               email: $scope.email
           }
       }).success(function(res) {
-        User.setCurrent(res);
         $state.go("main");
       });
   }
 }])
 
-app.controller("loginController", ["$scope", "$state", "$http", "User", function($scope, $state, $http, User) {
+app.controller("loginController", ["$scope", "$state", "$http", function($scope, $state, $http) {
   $scope.user = {
     username: "",
     password: ""
   }
   $scope.login = function() {
-      $http.get("/api/auth/local/login/", {
-          headers: {
-              Authorization: "Basic " + btoa($scope.user.username + ":" + $scope.user.password)
-          }
-      }).success(function(res) {
-        User.setCurrent(res);
-        $state.go("main");
-      })
+    $http.get("/api/auth/local/login/", {
+        headers: {
+            Authorization: "Basic " + btoa($scope.user.username + ":" + $scope.user.password)
+        }
+    }).success(function(res) {
+      $state.go("main");
+    })
   };
 }])
 

@@ -1,24 +1,27 @@
 module.exports = {
   create: function(req, res) {
     var lat = parseFloat(req.param("lat"));
-    var log = parseFloat(req.param("log"));
+    var lon = parseFloat(req.param("lon"));
 
-    if (isNaN(lat) || isNaN(log)) {
+    var year = parseInt(req.param("year"));
+
+    if (isNaN(lat) || isNaN(lon) || isNaN(year)) {
       return res.ok({
         error: "incorrect gps data received"
       });
     }
-
     var newApiary = {
       name: req.param("name"),
 
       user: req.user.id,
 
+      months: req.param("months"),
+
       // GPS
       lat: lat,
-      log: log,
+      lon: lon,
 
-      startYear: new Date(req.param("date")),
+      startYear: year,
 
       // questions
       environment: {
@@ -49,12 +52,21 @@ module.exports = {
     Apiary.create(newApiary)
     .then(function(apiary){
       res.ok(apiary);
+    }).catch(function(err) {
+      sails.log.error("create", err);
+      res.ok({
+        error: "Failed to create apiary"
+      });
     });
   },
 
   get: function(req, res) {
     Apiary.find({
-      beekeepers: req.user.id
+      or: [{
+        beekeepers: req.user.id
+      }, {
+        user: req.user.id
+      }]
     }).then(_.identity)
     .catch(function(err) {
       sails.log.error("get", err);

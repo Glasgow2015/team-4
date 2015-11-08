@@ -7,6 +7,10 @@ module.exports = {
       type: 'string'
     },
 
+    months: {
+      type: 'json'
+    },
+
     beekeepers: {
       collection: "User",
       via: "keeping"
@@ -19,10 +23,10 @@ module.exports = {
 
     // GPS
     lat: {
-      type: 'number'
+      type: 'float'
     },
     log: {
-      type: 'number'
+      type: 'float'
     },
 
     startYear: {

@@ -35,5 +35,25 @@ module.exports = {
         error: "Failed to create new Inspection"
       };
     }).then(res.ok);
+  },
+
+  getByHive: function(req, res) {
+    return Hive.findOne({
+      id: req.param("hive"),
+      or: [{
+        user: req.user.id
+      }, {
+        keepers: req.user.id
+      }]
+    }).then(function(hive) {
+      return Inspection.find({
+        hive: hive.id
+      });
+    }).catch(function(err) {
+      sails.log.error("getByHive", err);
+      return {
+        error: "Failed to get Inspections"
+      };
+    }).then(res.ok);
   }
 };

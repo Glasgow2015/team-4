@@ -27,10 +27,10 @@ module.exports = {
 
     // GPS
     lat: {
-      type: 'number'
+      type: 'float'
     },
-    log: {
-      type: 'number'
+    lon: {
+      type: 'float'
     },
 
     picture: {

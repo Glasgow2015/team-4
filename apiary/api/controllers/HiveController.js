@@ -1,9 +1,9 @@
 module.exports = {
   create: function(req, res) {
     var lat = parseFloat(req.param("lat"));
-    var log = parseFloat(req.param("log"));
+    var lon = parseFloat(req.param("lon"));
 
-    if (isNaN(lat) || isNaN(log)) {
+    if (isNaN(lat) || isNaN(lon)) {
       return res.ok({
         error: "incorrect gps data received"
       });
@@ -16,9 +16,9 @@ module.exports = {
 
       // GPS
       lat: lat,
-      log: log,
+      lon: lon,
 
-      installationDate: new Date(req.param("installDate")),
+      installationDate: new Date(req.param("date")),
       type: req.param("type"),
       exposure: req.param("exposure")
     };
