@@ -22,7 +22,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       }
   });
 
-    console.log("YEY");
 
     $stateProvider
         .state("main", {
@@ -56,8 +55,17 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
           }
         })
+        .state("main.apiary_create", {
+          url: "apiary/create",
+          views: {
+            'body@main': {
+              templateUrl: '/templates/apiary_create.html',
+              controller: 'apiaryCreateController'
+            }
+          }
+        })
         .state("main.apiary", {
-          url: "apiary",
+          url: "apiary/:id",
           views: {
             'body@main': {
               templateUrl: '/templates/apiary.html',

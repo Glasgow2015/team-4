@@ -1,4 +1,25 @@
 <div style="height:100%">
-  <div ui-view="topbar"></div>
-  <div ui-view="body" class="container"></div>
+  <div layout="column" style="height:100%;" ng-cloak>
+  <section layout="row" flex>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-toolbar class="md-theme-indigo text-center" style="padding-top:15px">
+        <i class="fa fa-5x fa-pagelines"></i>
+        <p style="color:white;font-size:150%">Apiary</p>
+      </md-toolbar>
+      <md-divider></md-divider>
+      <md-button class="md-primary" ng-repeat="a in apiaries" ui-sref="main.apiary({id:a.id})" ng-class="{'md-raised':isSelected(a.id)}">{{a.name}}</md-button>
+        <!-- </md-list-item>
+      </md-list> -->
+    </md-sidenav>
+    <md-content flex>
+      <div layout="column" layout-fill layout-align="top center">
+        <div ui-view="topbar"></div>
+        <div ui-view="body"></div>
+      </div>
+      <div flex></div>
+    </md-content>
+  </section>
+</div>
+  <!-- <div ui-view="topbar"></div> -->
+  <!-- <div ui-view="body" class="container"></div> -->
 </div>

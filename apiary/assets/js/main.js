@@ -1,6 +1,6 @@
 var app = angular.module("mainModule", []);
 
-app.controller("mainController", ["currentUser", "$scope", function(currentUser, $scope) {
+app.controller("mainController", ["currentUser", "$scope", "apiaryQuestions", "$http", "months", "$state", "$rootScope", function(currentUser, $scope, apiaryQuestions, $http, months, $state, $rootScope) {
   $scope.currentUser = currentUser;
 
   $scope.readableTruthy = function(bool) {
@@ -10,6 +10,50 @@ app.controller("mainController", ["currentUser", "$scope", function(currentUser,
       return "No"
     }
   }
+
+  $scope.readableMonths = function(ms) {
+    if(!ms) return;
+    var string = "";
+    ms.forEach(function(m, index) {
+      string += months[m-1]
+      if(index != ms.length-1) {
+        string +=", "
+      }
+    })
+    return string;
+  }
+
+  $scope.apiaries = [];
+  $scope.selected = -1;
+  var getApiaries = function () {
+    $http.get("/api/apiary").success(function(res) {
+      $scope.apiaries = res;
+      $scope.matchQuestions($scope.apiaries);
+    })
+  }
+
+  $scope.isSelected = function(id){
+    return $state.params.id == id;
+  }
+  getApiaries();
+
+  $scope.matchQuestions = function(apiaries) {
+    apiaries.forEach(function(a) {
+      a.questions = [];
+      apiaryQuestions.forEach(function(q) {
+        if(a[q.model]) {
+          a.questions.push({
+            string: q.string,
+            value: a[q.model]
+          })
+        }
+      })
+    })
+  }
+
+  $rootScope.$on("pullApiaries", function() {
+    getApiaries();
+  })
 }])
 
 app.controller("masterController", ["User", "$scope", function(User, $scope) {
@@ -29,7 +73,19 @@ app.constant("months", [
   "December"
 ])
 
-app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "months", function($scope, apiaryQuestions, $http, months) {
+app.controller("apiaryController", ["$scope", "$http", "$stateParams", function($scope, $http, $stateParams) {
+  $scope.apiary = {}
+  var getApiary = function() {
+    $http.get("/api/apiary/"+$stateParams.id).success(function(data) {
+      $scope.apiary = data;
+      $scope.matchQuestions([$scope.apiary]);
+      console.log($scope.apiary);
+    })
+  }
+  getApiary();
+}])
+
+app.controller("apiaryCreateController", ["$scope", "apiaryQuestions", "$http", "months", "$state", "$rootScope", function($scope, apiaryQuestions, $http, months, $state, $rootScope) {
   $scope.apiary = {}
   $scope.questions = []
   $scope.months = []
@@ -51,7 +107,8 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "month
       $scope.apiary[q.model] = q.value
     })
     $http.post("/api/apiary/create", $scope.apiary).success(function (res) {
-
+      $state.go("main.apiary", {id: res.id});
+      $rootScope.$emit("pullApiaries");
     })
   }
 
@@ -112,7 +169,7 @@ app.controller("apiaryController", ["$scope", "apiaryQuestions", "$http", "month
   }
 ])
 
-app.controller("navbarController", ["$scope", "$http", "$state", function($scope, $http, $state) {
+app.controller("navbarController", ["$scope", "$http", "$state", "apiaryQuestions", function($scope, $http, $state, apiaryQuestions) {
   $scope.logout = function() {
     $http.get("/logout").success(function() {
       $state.go("login");

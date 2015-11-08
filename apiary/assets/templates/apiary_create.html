@@ -1,0 +1,37 @@
+<div class="col-md-12">
+  <div class="col-md-6">
+    <h2>Create Apiary</h2>
+    <div class="form-group">
+      <label>Apiary Name</label>
+      <input type="text" class="form-control" placeholder="Apiary Name" ng-model="apiary.name">
+    </div>
+    <div class="form-group">
+      <label>Year of commencing apiary</label>
+      <input type="number" class="form-control" placeholder="Year" ng-model="apiary.year">
+    </div>
+    <div class="form-group">
+      <label>Harvesting Months</label>
+      <button type="button" class="btn btn-default" ng-model="apiary.months" placeholder="Month..." data-multiple="1" data-animation="am-flip-x" bs-options="m.value as m.label for m in months" bs-select>
+        Action <span class="caret"></span>
+      </button>
+    </div>
+    <div class="form-group">
+      <label>Coordinates</label>
+      <input type="number" class="form-control" placeholder="Longitude" ng-model="apiary.lon">
+      <input type="number" class="form-control" placeholder="Latitude" ng-model="apiary.lat">
+    </div>
+  </div>
+</div>
+<div class="col-md-6" ng-repeat="q in questions" style="border-radius:0px; border-bottom: 1px solid gray; height: 75px">
+  <div class="col-md-9">
+    <p style="margin:15px">{{q.string}}</p>
+  </div>
+  <div class="col-md-3">
+    <md-switch ng-model="q.value" ng-true-value="true" ng-false-value="false" class="md-primary md-block">
+      <b>{{readableTruthy(q.value)}}</b>
+    </md-switch>
+  </div>
+</div>
+<div class="col-md-6" style="margin-top:20px">
+  <button class="btn btn-primary btn-block" ng-click="create()" type="button">Create</button>
+</div>
