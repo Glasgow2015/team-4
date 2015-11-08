@@ -1,11 +1,11 @@
 package com.jpmorganchase.apiary;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -15,6 +15,7 @@ import java.net.PasswordAuthentication;
 import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
+    static String URL = "http://morwoen.uk:1337";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +25,17 @@ public class LoginActivity extends AppCompatActivity {
         clickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText username = (EditText) v.findViewById(R.id.name);
+                EditText password = (EditText) v.findViewById(R.id.pswd);
 
+                AsyncTask log = new Logging(username.getText().toString(), password.getText().toString());
+
+                log.execute(URL);
             }
         });
     }
 
-    private class Logging extends AsyncTask<URL, Void, Long> {
+    protected class Logging extends AsyncTask<URL, Void, Long> {
 
         String username;
         String password;
@@ -45,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 urlConnection = (HttpURLConnection) url[0].openConnection();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                System.out.println(urlConnection.getResponseMessage());
 
                 if (!url[0].getHost().equals(urlConnection.getURL().getHost())) {
 

@@ -11,8 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
+            android:name="LoginActivity"
+            android:label="LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
         </activity>
         <activity android:name=".HarvestActivity" >
         </activity>
-        <activity android:name=".LoginActivity" >
+        <activity android:name="MainActivity" >
         </activity>
     </application>
 
